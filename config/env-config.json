@@ -1,0 +1,4 @@
+{
+  "extends": "../cypress.json",
+  "baseUrl": "http://localhost:2368/ghost"
+} 
