@@ -2,9 +2,9 @@ import URL from "../support/AppUrls";
 
 
 const loginLocators = {
-  emailTextBox: "#identification",
-  passwordTextBox: "#password",
-  signInButton: "#ember7",
+  emailTextBox: "input[class='email ember-text-field gh-input ember-view']",
+  passwordTextBox: "input[class='password ember-text-field gh-input ember-view']",
+  signInButton: "button[class='login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view']",
 };
 
 export class loginPage {
@@ -16,5 +16,7 @@ export class loginPage {
     cy.get(loginLocators.emailTextBox).type(URL.user)
     cy.get(loginLocators.passwordTextBox).type(URL.password)
     cy.get(loginLocators.signInButton).click()
+    cy.wait(2000)
+    cy.screenshot('user_logged_in')
   }
 }
