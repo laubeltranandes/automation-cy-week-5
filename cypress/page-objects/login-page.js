@@ -16,5 +16,7 @@ export class loginPage {
     cy.get(loginLocators.emailTextBox).type(URL.user)
     cy.get(loginLocators.passwordTextBox).type(URL.password)
     cy.get(loginLocators.signInButton).click()
+    cy.wait(2000)
+    cy.screenshot('user_logged_in')
   }
 }
