@@ -23,10 +23,14 @@ const tagLocators = {
 
     navigateToTagLink() {
         cy.get(tagLocators.tagLink).first().click()
+        cy.wait(1000)
+        cy.screenshot('navigate_to_tags_link')
     }
 
     clickToNewTagButton() {
         cy.get(tagLocators.newTagButton).first().click()
+        cy.wait(1000)
+        cy.screenshot('tag_new_tag_button_clicked')
     }
 
     putInputTagName() {
@@ -43,10 +47,14 @@ const tagLocators = {
 
     clickToButtonTagExpand() {
         cy.get(tagLocators.buttonTagExpand).first().click()
+        cy.wait(1000)
+        cy.screenshot('tag_expand_button_clicked')
     }
 
     putInputTagMetaTitle() {
         cy.get(tagLocators.inputTagMetaTitle).type('Meta tittle cypress 1')
+        cy.wait(1000)
+        cy.screenshot('tag_settings_added')
     }
 
     putTextAreaTagMetaDescription() {
@@ -58,45 +66,61 @@ const tagLocators = {
     }
 
     clickToButtonSaveTag() {
-        cy.get(tagLocators.buttonSaveTag).click();  
+        cy.get(tagLocators.buttonSaveTag).click();
+        cy.wait(1000)
+        cy.screenshot('tag_save_button_clicked')
     }
 
     clickToLinkFirstTagList() {
         cy.get(tagLocators.linkFirstTagList).first().click()
+        cy.wait(1000)
+        cy.screenshot('tag_link_first_on_list_clicked')
     }
 
     clickToButtonTagDelete() {
         cy.get(tagLocators.buttonTagDelete).click()
+        cy.wait(1000)
+        cy.screenshot('tag_delete_button_clicked')
     }
 
     clickToButtonTagAcceptModal() {
         cy.get(tagLocators.buttonTagAcceptModal).click()
+        cy.wait(1000)
+        cy.screenshot('tag_accept_modal_button_clicked')
     }
 
     clickToButtonTagRejectModal() {
         cy.get(tagLocators.buttonTagRejectModal).click()
+        cy.wait(1000)
+        cy.screenshot('tag_reject_modal_button_clicked')
     }
 
-    verifyTitleTag() {    
+    verifyNewTitleTag() {    
         cy.get(tagLocators.tagName).then($items => {
             expect($items.find(item => item.innerText == "Tag test cypress 1"))
         })
-      }
+    }
+
     clickToButtonLeaveModal() {
         cy.get(tagLocators.buttonLeave).click()
+        cy.wait(1000)
+        cy.screenshot('tag_leave_modal_button_clicked')
     }
 
     verifyTitleTag() {    
         cy.get(tagLocators.tagName).then($items => {
             expect($items.find(item => item.innerText == "Tag Editado test cypress 1"))
         })
-      }
+    }
+
     editColorAndTitleItems(){     
        cy.get(tagLocators.inputTagName).clear()
        cy.get(tagLocators.inputTagName).type('Tag Editado test cypress 1');
 
        cy.get(tagLocators.inputTagColor).clear()
        cy.get(tagLocators.inputTagColor).type('e50b0b')
+       cy.wait(1000)
+       cy.screenshot('tag_edit_color_and_title_items')
     }
 
     naviageteReturnList(){
@@ -104,6 +128,7 @@ const tagLocators = {
             expect($items.find(item => item.innerText == "Tags"))
         })
     }
+
     messageError() {
         cy.get(tagLocators.messageError).then($items => {
             expect($items.find(item => item.innerText == "You must specify a name for the tag."))

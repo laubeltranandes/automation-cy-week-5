@@ -33,7 +33,6 @@ export class pagesPage {
     cy.screenshot('pages_list')
     cy.get(tagLocators.newPageButton).first().click()
     cy.wait(1000)
-      
   }
 
   putInputPageTitle() {

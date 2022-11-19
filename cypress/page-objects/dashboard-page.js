@@ -18,26 +18,36 @@ export class dashboardPage {
 
   navigateToMemberDetails(){
     cy.xpath(dashboardLocators.member).last().click()
+    cy.wait(1000)
+    cy.screenshot('navigate_to_member_detail')
   }
+
   navigateToAddMember() {
     cy.get(dashboardLocators.addMembersLink).click()
+    cy.wait(1000)
+    cy.screenshot('navigate_to_add_member')
   }
 
   navigateToMembers(){
     cy.get(dashboardLocators.membersLink).first().click()
+    cy.wait(1000)
+    cy.screenshot('navigate_to_members')
   }
 
   clickNewMemberButton() {
     cy.get(dashboardLocators.newMemberButton).first().click()
+    cy.wait(1000)
+    cy.screenshot('new_member_page')
   }
 
   verifyNumberOfMembers(numberOfMembers) {
-    // cy.get(dashboardLocators.membersCounter).contains(numberOfMembers)
     cy.get(dashboardLocators.membersCounter).should('have.text', numberOfMembers)
   }
 
   navigateToDashboard() {
     cy.get(dashboardLocators.dashboardLink).first().click()
+    cy.wait(1000)
+    cy.screenshot('navigate_to_dashboard')
   }
 
   verifyTotalMembersSection() {

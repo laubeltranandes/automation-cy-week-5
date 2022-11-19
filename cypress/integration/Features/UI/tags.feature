@@ -19,7 +19,7 @@ Feature: Check tags functionality
     And edit title a color text  
     And user click in save button 
     And  user navigates to the tag page
-    Then verify the title tag
+    Then verify the title edited tag
 
   Scenario: Reject Delete
     When user is logged in the application 

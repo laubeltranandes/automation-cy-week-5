@@ -23,10 +23,14 @@ const tagLocators = {
 
     navigateToPostLink() {
         cy.get(tagLocators.postLink).first().click()
+        cy.wait(1000)
+        cy.screenshot('navigate_to_post_page')
     }
 
     clickToNewPostButton() {
         cy.get(tagLocators.newPostButton).first().click()
+        cy.wait(1000)
+        cy.screenshot('navigate_to_new_post_page')
     }
 
     typeTextAreaPostTitle(text) {
@@ -35,59 +39,84 @@ const tagLocators = {
 
     clickTextAreaPostTitle() {
         cy.get(tagLocators.textAreaPostDescriptionClick).click()
-        cy.wait(2000)
     }
 
     typeTextAreaPostDescription(text) {
         cy.get(tagLocators.textAreaPostDescription).type(text, {force: true})
+        cy.wait(1000)
+        cy.screenshot('post_title_and_content_added')
     }
 
     clickToButtonPostPublish() {
         cy.get(tagLocators.buttonPostPublish).click()
+        cy.wait(1000)
+        cy.screenshot('post_publish_page')
     }
 
     clickToButtonContinuePublish() {
         cy.get(tagLocators.buttonContinuePublish).first().click()
+        cy.wait(1000)
+        cy.screenshot('post_publish_page')
     }
 
     clickToButtonHeaderEditor() {
         cy.get(tagLocators.buttonHeaderEditor).click()
+        cy.wait(1000)
+        cy.screenshot('post_header_editor_button_clicked')
     }
 
     clickToButtonPosts() {
         cy.get(tagLocators.buttonPosts).first().click()
+        cy.wait(1000)
+        cy.screenshot('posts_list')
     }
 
     clickToButtonRightNow() {
         cy.get(tagLocators.buttonRightNow).first().click()
+        cy.wait(1000)
+        cy.screenshot('post_right_now_button_clicked')
     }
 
     clickToButtonScheduledForLater() {
         cy.get(tagLocators.buttonScheduledForLater).click()
+        cy.wait(1000)
+        cy.screenshot('post_schedule_for_later_button_clicked')
     }
 
     clickToButtonDrafts() {
         cy.get(tagLocators.buttonDrafts).click()
+        cy.wait(1000)
+        cy.screenshot('post_drafts_button_clicked')
     }
 
     clickToButtonPublished() {
         cy.get(tagLocators.buttonPublished).click()
+        cy.wait(1000)
+        cy.screenshot('post_published_button_clicked')
     }
 
     clickToButtonEditFirstItem() {
         cy.get(tagLocators.buttonEditFirstItem).click()
+        cy.wait(1000)
+        cy.screenshot('post_edit_first_item_button_clicked')
     }
 
     clickToButtonEditMenu() {
         cy.get(tagLocators.buttonEditMenu).click()
+        cy.wait(1000)
+        cy.screenshot('post_edit_menu_button_clicked')
     }
 
     clickToButtonDeleteDraftPost() {
         cy.get(tagLocators.buttonDeleteDraftPost).click()
+        cy.wait(1000)
+        cy.screenshot('post_delete_draft_button_clicked')
     }
 
     clickToButtonConfirmDeleteDraftPost() {
         cy.get(tagLocators.buttonConfirmDeleteDraftPost).click()
+        cy.wait(1000)
+        cy.screenshot('post_confirm_delete_draft_button_clicked')
     }
 
     verifyPostTitleOnList(text) { 
