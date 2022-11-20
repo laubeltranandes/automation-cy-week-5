@@ -1,4 +1,3 @@
-import GLOBAL_CONST from "../support/globalConst";
 
 
 const membersLocators = {
@@ -14,18 +13,21 @@ export class membersPage {
   enterMemberName() {
     cy.get(membersLocators.memberNameTextBox).type("name", {force: true})
     cy.wait(1000)
-    cy.screenshot(GLOBAL_CONST.members + '-enterMemberName')
+    cy.screenshot('member_name_added')
   }
 
   enterEmail(){
     cy.get(membersLocators.emailTextBox).type("user@email.com")
     cy.wait(1000)
-    cy.screenshot(GLOBAL_CONST.members + '-enterEmail')
+    cy.screenshot('member_email_added')
   }
 
   clickSaveButton(){
     cy.get(membersLocators.saveButton).click()
     cy.wait(3000)
-    cy.screenshot(GLOBAL_CONST.members + '-clickSaveButton')
+    cy.screenshot('member_saved')
   }
+
+
 }
+

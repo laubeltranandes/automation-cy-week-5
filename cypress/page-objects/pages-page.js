@@ -1,5 +1,3 @@
-import GLOBAL_CONST from "../support/globalConst";
-
 const tagLocators = {
   pagesLink:"a[href='#/pages/']",
   newPageButton: "a[href='#/editor/page/']",
@@ -29,146 +27,125 @@ export class pagesPage {
   navigateToPageLink() {
       cy.get(tagLocators.pagesLink).first().click()
       cy.wait(1000)
-      cy.screenshot(GLOBAL_CONST.pages + '-navigateToPageLink')
   }
 
   clickToNewPageButton() {
     cy.screenshot('pages_list')
     cy.get(tagLocators.newPageButton).first().click()
     cy.wait(1000)
-    cy.screenshot(GLOBAL_CONST.pages + '-clickToNewPageButton')
   }
 
   putInputPageTitle() {
     cy.screenshot('pages_editor_before_create')
     cy.get(tagLocators.inputPageTitle).type('Page test cypress 1')
-    cy.screenshot(GLOBAL_CONST.pages + '-putInputPageTitle')
   }
 
   putTextAreaPageDescription() {
-    cy.get(tagLocators.textAreaPageDescriptionContent).type('Page test descriptioncypress 1', {force:true})
-    cy.screenshot(GLOBAL_CONST.pages + '-putTextAreaPageDescription')
+      cy.get(tagLocators.textAreaPageDescriptionContent).type('Page test descriptioncypress 1', {force:true})
   }
 
   clickToPublishButton() {
     cy.screenshot('added_page_title_and_content')
     cy.get(tagLocators.publishButton).first().click()
     cy.wait(1000)
-    cy.screenshot(GLOBAL_CONST.pages + '-clickToPublishButton')
   }
 
   clickToContinuePublishButton() {
     cy.screenshot('publish_confirmation_screen')
     cy.get(tagLocators.continuePublishButton).first().click()
     cy.wait(1000)
-    cy.screenshot(GLOBAL_CONST.pages + '-clickToContinuePublishButton')
   }
 
-  clickToPublishRightNowButton() {
+  clickToPublisRightNowhButton() {
+    //cy.screenshot('publish_right_now_screen')
     cy.get(tagLocators.publishRightNowButton).first().click().screenshot('publish_right_now_screen')
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickToPublishRightNowButton')
   }
 
   clickToBackToEditorButton() {
     cy.screenshot('confirmed_publishing')
     cy.get(tagLocators.backToEditorButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickToBackToEditorButton')
   }
 
   verifyTitleNewPage() {    
     cy.screenshot('pages_list_after_create')
     cy.get(tagLocators.pageTitle).first().should('contain', "Page test cypress 1")
-    cy.screenshot(GLOBAL_CONST.pages + '-verifyTitleNewPage')
   }
 
   clickFirstPage() {
     cy.screenshot('pages_list_to_select')
     cy.get(tagLocators.pageItemList).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickFirstPage')
   }
 
   putInputPageEditedTitle() {
     cy.screenshot('page_editor_before_edit')
     cy.get(tagLocators.inputPageTitle).type(' Edited')
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-putInputPageEditedTitle')
   }
 
   clickOnUpdatePageButton() {
     cy.screenshot('page_editor_after_edit')
     cy.get(tagLocators.updateButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickOnUpdatePageButton')
   }
 
   verifyTitleEditedPage() {    
     cy.screenshot('pages_list_after_edit')
     cy.get(tagLocators.pageTitle).first().should('contain', 'Page test cypress 1 Edited')
-    cy.screenshot(GLOBAL_CONST.pages + '-verifyTitleEditedPage')
   }
 
   clickOnUnpublishPageButton() {  
     cy.screenshot('page_editor_before_unpublish')  
     cy.get(tagLocators.unpublishButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickOnUnpublishPageButton')
   }
 
   clickOnConfirmationUnpublishPageButton() {    
     cy.screenshot('page_unpublish_confirmation_screen') 
     cy.get(tagLocators.confirmationUnpublishButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickOnConfirmationUnpublishPageButton')
   }
 
   verifyStatusUnpublishedPage() {  
     cy.screenshot('pages_list_after_unpublish')   
     cy.get(tagLocators.pageStatus).first().should('contain', 'Draft')
-    cy.screenshot(GLOBAL_CONST.pages + '-verifyStatusUnpublishedPage')
   }
 
   clickOnPageSettingButton() {   
     cy.screenshot('page_editor_before_delete') 
     cy.get(tagLocators.pageSettingButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickOnPageSettingButton')
   }
 
   clickOnDeletePageButton() {    
     cy.screenshot('page_delete_click')
     cy.get(tagLocators.deletePageButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickOnDeletePageButton')
   }
 
   clickConfirmationDeletePageButton() {    
     cy.screenshot('page_delete_confirmation')
     cy.get(tagLocators.confirmationDeletePageButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickConfirmationDeletePageButton')
   }
 
   verifyPageIsNotInList() {
     cy.screenshot('pages_list_after_delete')
     cy.get(tagLocators.pageTitle).first().should('not.contain', 'Page test cypress 1 Edited')
-    cy.screenshot(GLOBAL_CONST.pages + '-verifyPageIsNotInList')
   }
 
   clickOnSelectPublishPageModeButton() {
     cy.screenshot('open_page_publishing_options')
     cy.get(tagLocators.publishPageModeButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickOnSelectPublishPageModeButton')
   }
 
   selectScheduleForLateOption() {
     cy.screenshot('select_schedule_page_publish_for_late_option')
     cy.get(tagLocators.scheduleForLateButton).last().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-selectScheduleForLateOption')
   }
 
   selectSetTwoDaysLater() {
@@ -178,20 +155,17 @@ export class pagesPage {
     cy.get(tagLocators.dateToScheduleInput).clear()
     cy.get(tagLocators.dateToScheduleInput).type(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate())
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-selectSetTwoDaysLater')
   }
 
   clickOnGoBackToPageEditorButton() {
     cy.screenshot('page_scheduling_finished')
     cy.get(tagLocators.goBackToPageEditorButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickOnGoBackToPageEditorButton')
   }
 
   verifyStatusScheduledPage() {
     cy.screenshot('pages_list_after_sheduling')
     cy.get(tagLocators.pageStatus).first().should('contain', 'Scheduled')
-    cy.screenshot(GLOBAL_CONST.pages + '-verifyStatusScheduledPage')
   }
 
 }
