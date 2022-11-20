@@ -1,4 +1,3 @@
-import GLOBAL_CONST from "../support/globalConst";
 
 
 const dashboardLocators = {
@@ -38,7 +37,7 @@ export class dashboardPage {
   clickNewMemberButton() {
     cy.get(dashboardLocators.newMemberButton).first().click()
     cy.wait(1000)
-    cy.screenshot(GLOBAL_CONST.dashboard + '-clickNewMemberButton')
+    cy.screenshot('new_member_page')
   }
 
   verifyNumberOfMembers(numberOfMembers) {
@@ -71,4 +70,10 @@ export class dashboardPage {
     cy.get(dashboardLocators.recentPostSectionLabel).contains("Recent posts")
     cy.screenshot(Cypress.currentTest.title + '-verifyRecentPostSection')
   };
+
 }
+
+
+
+
+

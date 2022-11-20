@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy:run": "cypress run --spec \"cypress/integration/features/**/*.feature\"",
+    "cy:run": "cypress run --spec \"cypress/integration/${PRODUCTION_TYPE:-**}/**\"",
     "cy:open": "cypress open"
   },
   "author": "LauraBeltran",

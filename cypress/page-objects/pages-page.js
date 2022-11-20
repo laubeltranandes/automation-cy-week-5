@@ -1,5 +1,3 @@
-import GLOBAL_CONST from "../support/globalConst";
-
 const tagLocators = {
   pagesLink:"a[href='#/pages/']",
   newPageButton: "a[href='#/editor/page/']",
@@ -64,7 +62,8 @@ export class pagesPage {
     cy.screenshot(Cypress.currentTest.title + '-clickToContinuePublishButton')
   }
 
-  clickToPublishRightNowButton() {
+  clickToPublisRightNowhButton() {
+    //cy.screenshot('publish_right_now_screen')
     cy.get(tagLocators.publishRightNowButton).first().click().screenshot('publish_right_now_screen')
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-clickToPublishRightNowButton')

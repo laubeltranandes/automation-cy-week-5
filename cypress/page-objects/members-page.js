@@ -1,4 +1,3 @@
-import GLOBAL_CONST from "../support/globalConst";
 
 
 const membersLocators = {
@@ -28,4 +27,7 @@ export class membersPage {
     cy.wait(3000)
     cy.screenshot(Cypress.currentTest.title+ '-clickSaveButton')
   }
+
+
 }
+

@@ -1,5 +1,3 @@
-import GLOBAL_CONST from "../support/globalConst";
-
 const tagLocators = {
     tagLink:"a[href='#/tags/'",
     newTagButton: "a[href='#/tags/new/'",
@@ -27,12 +25,14 @@ const tagLocators = {
         cy.get(tagLocators.tagLink).first().click()
         cy.wait(1000)
         cy.screenshot(Cypress.currentTest.title + '-navigateToTagLink')
+        cy.screenshot('navigate_to_tags_link')
     }
 
     clickToNewTagButton() {
         cy.get(tagLocators.newTagButton).first().click()
         cy.wait(1000)
         cy.screenshot(Cypress.currentTest.title + '-clickToNewTagButton')
+        cy.screenshot('tag_new_tag_button_clicked')
     }
 
     putInputTagName() {
@@ -60,6 +60,7 @@ const tagLocators = {
         cy.get(tagLocators.inputTagMetaTitle).type('Meta tittle cypress 1')
         cy.wait(1000)
         cy.screenshot(Cypress.currentTest.title + '-putInputTagMetaTitle')
+        cy.screenshot('tag_settings_added')
     }
 
     putTextAreaTagMetaDescription() {

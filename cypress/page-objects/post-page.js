@@ -1,5 +1,3 @@
-import GLOBAL_CONST from "../support/globalConst";
-
 const tagLocators = {
     postLink:"a[href='#/posts/'",
     newPostButton: "a[href='#/editor/post/'",
@@ -27,7 +25,6 @@ const tagLocators = {
         cy.get(tagLocators.postLink).first().click()
         cy.wait(1000)
         cy.screenshot('navigate_to_post_page')
-        cy.screenshot(GLOBAL_CONST.posts + '-navigateToPostLink')
     }
 
     clickToNewPostButton() {
