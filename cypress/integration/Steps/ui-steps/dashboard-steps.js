@@ -7,9 +7,8 @@ const membersPageObj = new membersPage();
 
 
 When(/^a new member is created$/, function () {
+    dashboardPageObj.navigateToStaff();
     dashboardPageObj.navigateToAddMember();
-    dashboardPageObj.clickNewMemberButton();
-    membersPageObj.enterMemberName();
     membersPageObj.enterEmail();
     membersPageObj.clickSaveButton()
 });
@@ -51,3 +50,4 @@ And(
         dashboardPageObj.navigateToMemberDetails();
     }
 );
+

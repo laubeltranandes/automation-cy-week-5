@@ -5,17 +5,25 @@ const dashboardLocators = {
   addMembersLink: ".gh-dashboard-zero-message > :nth-child(4)",
   newMemberButton: "a[href='#/members/new/']",
   membersCounter: ".gh-dashboard-box > .gh-dashboard-metric > .gh-dashboard-metric-data > .gh-dashboard-metric-value > .value",
-  dashboardLink: "a[href='#/dashboard/']",
+  dashboardLink: "a[href='#/site/']",
   totalMembersSectionLabel: ".gh-dashboard-metric-label",
   topSourcesSectionLabel: ".gh-dashboard-metric-label",
   engagementSectionLabel: "gh-dashboard-metric-label",
   recentPostSectionLabel: "gh-dashboard-metric-label",
   membersLink: "a[href='#/members/']",
-  member: "//tr[1]"
+  member: "//tr[1]",
+  staffLink: "a[href='#/staff/']",
+  invitePeopleButton: "button[class='gh-btn gh-btn-green']"
 };
 
 
 export class dashboardPage {
+
+  navigateToStaff(){
+    cy.get(dashboardLocators.staffLink).first().click()
+    cy.wait(1000)
+    cy.screenshot(Cypress.currentTest.title + '-navigateToStaff')
+  }
 
   navigateToMemberDetails(){
     cy.xpath(dashboardLocators.member).last().click()
@@ -24,7 +32,7 @@ export class dashboardPage {
   }
 
   navigateToAddMember() {
-    cy.get(dashboardLocators.addMembersLink).click()
+    cy.get(dashboardLocators.invitePeopleButton).first().click()
     cy.wait(1000)
     cy.screenshot(Cypress.currentTest.title + '-navigateToAddMember')
   }
@@ -47,7 +55,7 @@ export class dashboardPage {
   }
 
   navigateToDashboard() {
-    cy.get(dashboardLocators.dashboardLink).first().click()
+    cy.get(dashboardLocators.dashboardLink).click()
     cy.wait(1000)
     cy.screenshot(Cypress.currentTest.title + '-navigateToDashboard')
   }
