@@ -26,80 +26,80 @@ const tagLocators = {
     navigateToTagLink() {
         cy.get(tagLocators.tagLink).first().click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.tags + '-navigateToTagLink')
+        cy.screenshot(Cypress.currentTest.title + '-navigateToTagLink')
     }
 
     clickToNewTagButton() {
         cy.get(tagLocators.newTagButton).first().click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.tags + '-clickToNewTagButton')
+        cy.screenshot(Cypress.currentTest.title + '-clickToNewTagButton')
     }
 
     putInputTagName() {
         cy.get(tagLocators.inputTagName).type('Tag test cypress 1')
-        cy.screenshot(GLOBAL_CONST.tags + '-putInputTagName')
+        cy.screenshot(Cypress.currentTest.title + '-putInputTagName')
     }
 
     putTextAreaTagDescription() {
         cy.get(tagLocators.textAreaTagDescription).type('Tag test descriptioncypress 1')
-        cy.screenshot(GLOBAL_CONST.tags + '-putTextAreaTagDescription')
+        cy.screenshot(Cypress.currentTest.title + '-putTextAreaTagDescription')
     }
 
     putInputTagColor() {
         cy.get(tagLocators.inputTagColor).type('bd4747')
-        cy.screenshot(GLOBAL_CONST.tags + '-putInputTagColor')
+        cy.screenshot(Cypress.currentTest.title + '-putInputTagColor')
     }
 
     clickToButtonTagExpand() {
         cy.get(tagLocators.buttonTagExpand).first().click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.tags + '-clickToButtonTagExpand')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonTagExpand')
     }
 
     putInputTagMetaTitle() {
         cy.get(tagLocators.inputTagMetaTitle).type('Meta tittle cypress 1')
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.tags + '-putInputTagMetaTitle')
+        cy.screenshot(Cypress.currentTest.title + '-putInputTagMetaTitle')
     }
 
     putTextAreaTagMetaDescription() {
         cy.get(tagLocators.textAreaTagMetaDescription).type('Meta description cypress 2')
-        cy.screenshot(GLOBAL_CONST.tags + '-putTextAreaTagMetaDescription')
+        cy.screenshot(Cypress.currentTest.title + '-putTextAreaTagMetaDescription')
     }
 
     putInputTagCannonicalUrl() {
         cy.get(tagLocators.inputTagCannonicalUrl).type('http://localhost:2369/test')
-        cy.screenshot(GLOBAL_CONST.tags + '-putInputTagCannonicalUrl')
+        cy.screenshot(Cypress.currentTest.title + '-putInputTagCannonicalUrl')
     }
 
     clickToButtonSaveTag() {
         cy.get(tagLocators.buttonSaveTag).click();
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.tags + '-clickToButtonSaveTag')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonSaveTag')
     }
 
     clickToLinkFirstTagList() {
         cy.get(tagLocators.linkFirstTagList).first().click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.tags + '-clickToLinkFirstTagList')
+        cy.screenshot(Cypress.currentTest.title + '-clickToLinkFirstTagList')
     }
 
     clickToButtonTagDelete() {
         cy.get(tagLocators.buttonTagDelete).click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.tags + '-clickToButtonTagDelete')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonTagDelete')
     }
 
     clickToButtonTagAcceptModal() {
         cy.get(tagLocators.buttonTagAcceptModal).click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.tags + '-clickToButtonTagAcceptModal')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonTagAcceptModal')
     }
 
     clickToButtonTagRejectModal() {
         cy.get(tagLocators.buttonTagRejectModal).click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.tags + '-clickToButtonTagRejectModal')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonTagRejectModal')
     }
 
     verifyNewTitleTag() {    
@@ -111,7 +111,7 @@ const tagLocators = {
     clickToButtonLeaveModal() {
         cy.get(tagLocators.buttonLeave).click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.tags + '-verifyNewTitleTag')
+        cy.screenshot(Cypress.currentTest.title + '-verifyNewTitleTag')
     }
 
     verifyTitleTag() {    
@@ -126,7 +126,7 @@ const tagLocators = {
          cy.get(tagLocators.inputTagColor).clear()
          cy.get(tagLocators.inputTagColor).type('e50b0b')
          cy.wait(1000)
-         cy.screenshot(GLOBAL_CONST.tags + '-editColorAndTitleItems')
+         cy.screenshot(Cypress.currentTest.title + '-editColorAndTitleItems')
     }
 
     naviageteReturnList(){

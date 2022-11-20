@@ -33,95 +33,95 @@ const tagLocators = {
     clickToNewPostButton() {
         cy.get(tagLocators.newPostButton).first().click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.posts + '-clickToNewPostButton')
+        cy.screenshot(Cypress.currentTest.title + '-clickToNewPostButton')
     }
 
     typeTextAreaPostTitle(text) {
         cy.get(tagLocators.textAreaPostTitle).type(text)
-        cy.screenshot(GLOBAL_CONST.posts + '-typeTextAreaPostTitle')
+        cy.screenshot(Cypress.currentTest.title+ '-typeTextAreaPostTitle')
     }
 
     clickTextAreaPostTitle() {
         cy.get(tagLocators.textAreaPostDescriptionClick).click()
-        cy.screenshot(GLOBAL_CONST.posts + '-clickTextAreaPostTitle')
+        cy.screenshot(Cypress.currentTest.title + '-clickTextAreaPostTitle')
     }
 
     typeTextAreaPostDescription(text) {
         cy.get(tagLocators.textAreaPostDescription).type(text, {force: true})
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.posts + '-typeTextAreaPostDescription')
+        cy.screenshot(Cypress.currentTest.title + '-typeTextAreaPostDescription')
     }
 
     clickToButtonPostPublish() {
         cy.get(tagLocators.buttonPostPublish).click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.posts + '-clickToButtonPostPublish')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonPostPublish')
     }
 
     clickToButtonContinuePublish() {
         cy.get(tagLocators.buttonContinuePublish).first().click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.posts + '-clickToButtonContinuePublish')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonContinuePublish')
     }
 
     clickToButtonHeaderEditor() {
         cy.get(tagLocators.buttonHeaderEditor).click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.posts + '-clickToButtonHeaderEditor')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonHeaderEditor')
     }
 
     clickToButtonPosts() {
         cy.get(tagLocators.buttonPosts).first().click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.posts + '-clickToButtonPosts')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonPosts')
     }
 
     clickToButtonRightNow() {
         cy.get(tagLocators.buttonRightNow).first().click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.posts + '-clickToButtonRightNow')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonRightNow')
     }
 
     clickToButtonScheduledForLater() {
         cy.get(tagLocators.buttonScheduledForLater).click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.posts + '-clickToButtonScheduledForLater')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonScheduledForLater')
     }
 
     clickToButtonDrafts() {
         cy.get(tagLocators.buttonDrafts).click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.posts + '-clickToButtonDrafts')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonDrafts')
     }
 
     clickToButtonPublished() {
         cy.get(tagLocators.buttonPublished).click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.posts + '-clickToButtonPublished')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonPublished')
     }
 
     clickToButtonEditFirstItem() {
         cy.get(tagLocators.buttonEditFirstItem).click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.posts + '-clickToButtonEditFirstItem')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonEditFirstItem')
     }
 
     clickToButtonEditMenu() {
         cy.get(tagLocators.buttonEditMenu).click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.posts + '-clickToButtonEditMenu')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonEditMenu')
     }
 
     clickToButtonDeleteDraftPost() {
         cy.get(tagLocators.buttonDeleteDraftPost).click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.posts + '-clickToButtonDeleteDraftPost')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonDeleteDraftPost')
     }
 
     clickToButtonConfirmDeleteDraftPost() {
         cy.get(tagLocators.buttonConfirmDeleteDraftPost).click()
         cy.wait(1000)
-        cy.screenshot(GLOBAL_CONST.posts + '-clickToButtonConfirmDeleteDraftPost')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonConfirmDeleteDraftPost')
     }
 
     verifyPostTitleOnList(text) { 

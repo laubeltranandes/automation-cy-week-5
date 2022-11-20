@@ -29,146 +29,146 @@ export class pagesPage {
   navigateToPageLink() {
       cy.get(tagLocators.pagesLink).first().click()
       cy.wait(1000)
-      cy.screenshot(GLOBAL_CONST.pages + '-navigateToPageLink')
+      cy.screenshot(Cypress.currentTest.title + '-navigateToPageLink')
   }
 
   clickToNewPageButton() {
     cy.screenshot('pages_list')
     cy.get(tagLocators.newPageButton).first().click()
     cy.wait(1000)
-    cy.screenshot(GLOBAL_CONST.pages + '-clickToNewPageButton')
+    cy.screenshot(Cypress.currentTest.title + '-clickToNewPageButton')
   }
 
   putInputPageTitle() {
     cy.screenshot('pages_editor_before_create')
     cy.get(tagLocators.inputPageTitle).type('Page test cypress 1')
-    cy.screenshot(GLOBAL_CONST.pages + '-putInputPageTitle')
+    cy.screenshot(Cypress.currentTest.title + '-putInputPageTitle')
   }
 
   putTextAreaPageDescription() {
     cy.get(tagLocators.textAreaPageDescriptionContent).type('Page test descriptioncypress 1', {force:true})
-    cy.screenshot(GLOBAL_CONST.pages + '-putTextAreaPageDescription')
+    cy.screenshot(Cypress.currentTest.title + '-putTextAreaPageDescription')
   }
 
   clickToPublishButton() {
     cy.screenshot('added_page_title_and_content')
     cy.get(tagLocators.publishButton).first().click()
     cy.wait(1000)
-    cy.screenshot(GLOBAL_CONST.pages + '-clickToPublishButton')
+    cy.screenshot(Cypress.currentTest.title + '-clickToPublishButton')
   }
 
   clickToContinuePublishButton() {
     cy.screenshot('publish_confirmation_screen')
     cy.get(tagLocators.continuePublishButton).first().click()
     cy.wait(1000)
-    cy.screenshot(GLOBAL_CONST.pages + '-clickToContinuePublishButton')
+    cy.screenshot(Cypress.currentTest.title + '-clickToContinuePublishButton')
   }
 
   clickToPublishRightNowButton() {
     cy.get(tagLocators.publishRightNowButton).first().click().screenshot('publish_right_now_screen')
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickToPublishRightNowButton')
+    cy.screenshot(Cypress.currentTest.title + '-clickToPublishRightNowButton')
   }
 
   clickToBackToEditorButton() {
     cy.screenshot('confirmed_publishing')
     cy.get(tagLocators.backToEditorButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickToBackToEditorButton')
+    cy.screenshot(Cypress.currentTest.title + '-clickToBackToEditorButton')
   }
 
   verifyTitleNewPage() {    
     cy.screenshot('pages_list_after_create')
     cy.get(tagLocators.pageTitle).first().should('contain', "Page test cypress 1")
-    cy.screenshot(GLOBAL_CONST.pages + '-verifyTitleNewPage')
+    cy.screenshot(Cypress.currentTest.title + '-verifyTitleNewPage')
   }
 
   clickFirstPage() {
     cy.screenshot('pages_list_to_select')
     cy.get(tagLocators.pageItemList).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickFirstPage')
+    cy.screenshot(Cypress.currentTest.title + '-clickFirstPage')
   }
 
   putInputPageEditedTitle() {
     cy.screenshot('page_editor_before_edit')
     cy.get(tagLocators.inputPageTitle).type(' Edited')
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-putInputPageEditedTitle')
+    cy.screenshot(Cypress.currentTest.title + '-putInputPageEditedTitle')
   }
 
   clickOnUpdatePageButton() {
     cy.screenshot('page_editor_after_edit')
     cy.get(tagLocators.updateButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickOnUpdatePageButton')
+    cy.screenshot(Cypress.currentTest.title + '-clickOnUpdatePageButton')
   }
 
   verifyTitleEditedPage() {    
     cy.screenshot('pages_list_after_edit')
     cy.get(tagLocators.pageTitle).first().should('contain', 'Page test cypress 1 Edited')
-    cy.screenshot(GLOBAL_CONST.pages + '-verifyTitleEditedPage')
+    cy.screenshot(Cypress.currentTest.title + '-verifyTitleEditedPage')
   }
 
   clickOnUnpublishPageButton() {  
     cy.screenshot('page_editor_before_unpublish')  
     cy.get(tagLocators.unpublishButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickOnUnpublishPageButton')
+    cy.screenshot(Cypress.currentTest.title + '-clickOnUnpublishPageButton')
   }
 
   clickOnConfirmationUnpublishPageButton() {    
     cy.screenshot('page_unpublish_confirmation_screen') 
     cy.get(tagLocators.confirmationUnpublishButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickOnConfirmationUnpublishPageButton')
+    cy.screenshot(Cypress.currentTest.title + '-clickOnConfirmationUnpublishPageButton')
   }
 
   verifyStatusUnpublishedPage() {  
     cy.screenshot('pages_list_after_unpublish')   
     cy.get(tagLocators.pageStatus).first().should('contain', 'Draft')
-    cy.screenshot(GLOBAL_CONST.pages + '-verifyStatusUnpublishedPage')
+    cy.screenshot(Cypress.currentTest.title + '-verifyStatusUnpublishedPage')
   }
 
   clickOnPageSettingButton() {   
     cy.screenshot('page_editor_before_delete') 
     cy.get(tagLocators.pageSettingButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickOnPageSettingButton')
+    cy.screenshot(Cypress.currentTest.title + '-clickOnPageSettingButton')
   }
 
   clickOnDeletePageButton() {    
     cy.screenshot('page_delete_click')
     cy.get(tagLocators.deletePageButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickOnDeletePageButton')
+    cy.screenshot(Cypress.currentTest.title + '-clickOnDeletePageButton')
   }
 
   clickConfirmationDeletePageButton() {    
     cy.screenshot('page_delete_confirmation')
     cy.get(tagLocators.confirmationDeletePageButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickConfirmationDeletePageButton')
+    cy.screenshot(Cypress.currentTest.title + '-clickConfirmationDeletePageButton')
   }
 
   verifyPageIsNotInList() {
     cy.screenshot('pages_list_after_delete')
     cy.get(tagLocators.pageTitle).first().should('not.contain', 'Page test cypress 1 Edited')
-    cy.screenshot(GLOBAL_CONST.pages + '-verifyPageIsNotInList')
+    cy.screenshot(Cypress.currentTest.title + '-verifyPageIsNotInList')
   }
 
   clickOnSelectPublishPageModeButton() {
     cy.screenshot('open_page_publishing_options')
     cy.get(tagLocators.publishPageModeButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickOnSelectPublishPageModeButton')
+    cy.screenshot(Cypress.currentTest.title + '-clickOnSelectPublishPageModeButton')
   }
 
   selectScheduleForLateOption() {
     cy.screenshot('select_schedule_page_publish_for_late_option')
     cy.get(tagLocators.scheduleForLateButton).last().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-selectScheduleForLateOption')
+    cy.screenshot(Cypress.currentTest.title + '-selectScheduleForLateOption')
   }
 
   selectSetTwoDaysLater() {
@@ -178,20 +178,20 @@ export class pagesPage {
     cy.get(tagLocators.dateToScheduleInput).clear()
     cy.get(tagLocators.dateToScheduleInput).type(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate())
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-selectSetTwoDaysLater')
+    cy.screenshot(Cypress.currentTest.title + '-selectSetTwoDaysLater')
   }
 
   clickOnGoBackToPageEditorButton() {
     cy.screenshot('page_scheduling_finished')
     cy.get(tagLocators.goBackToPageEditorButton).first().click()
     cy.wait(1000);
-    cy.screenshot(GLOBAL_CONST.pages + '-clickOnGoBackToPageEditorButton')
+    cy.screenshot(Cypress.currentTest.title + '-clickOnGoBackToPageEditorButton')
   }
 
   verifyStatusScheduledPage() {
     cy.screenshot('pages_list_after_sheduling')
     cy.get(tagLocators.pageStatus).first().should('contain', 'Scheduled')
-    cy.screenshot(GLOBAL_CONST.pages + '-verifyStatusScheduledPage')
+    cy.screenshot(Cypress.currentTest.title + '-verifyStatusScheduledPage')
   }
 
 }
