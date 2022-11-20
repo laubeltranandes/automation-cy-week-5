@@ -24,75 +24,83 @@ const tagLocators = {
     navigateToTagLink() {
         cy.get(tagLocators.tagLink).first().click()
         cy.wait(1000)
+        cy.screenshot(Cypress.currentTest.title + '-navigateToTagLink')
         cy.screenshot('navigate_to_tags_link')
     }
 
     clickToNewTagButton() {
         cy.get(tagLocators.newTagButton).first().click()
         cy.wait(1000)
+        cy.screenshot(Cypress.currentTest.title + '-clickToNewTagButton')
         cy.screenshot('tag_new_tag_button_clicked')
     }
 
     putInputTagName() {
         cy.get(tagLocators.inputTagName).type('Tag test cypress 1')
+        cy.screenshot(Cypress.currentTest.title + '-putInputTagName')
     }
 
     putTextAreaTagDescription() {
         cy.get(tagLocators.textAreaTagDescription).type('Tag test descriptioncypress 1')
+        cy.screenshot(Cypress.currentTest.title + '-putTextAreaTagDescription')
     }
 
     putInputTagColor() {
         cy.get(tagLocators.inputTagColor).type('bd4747')
+        cy.screenshot(Cypress.currentTest.title + '-putInputTagColor')
     }
 
     clickToButtonTagExpand() {
         cy.get(tagLocators.buttonTagExpand).first().click()
         cy.wait(1000)
-        cy.screenshot('tag_expand_button_clicked')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonTagExpand')
     }
 
     putInputTagMetaTitle() {
         cy.get(tagLocators.inputTagMetaTitle).type('Meta tittle cypress 1')
         cy.wait(1000)
+        cy.screenshot(Cypress.currentTest.title + '-putInputTagMetaTitle')
         cy.screenshot('tag_settings_added')
     }
 
     putTextAreaTagMetaDescription() {
         cy.get(tagLocators.textAreaTagMetaDescription).type('Meta description cypress 2')
+        cy.screenshot(Cypress.currentTest.title + '-putTextAreaTagMetaDescription')
     }
 
     putInputTagCannonicalUrl() {
         cy.get(tagLocators.inputTagCannonicalUrl).type('http://localhost:2369/test')
+        cy.screenshot(Cypress.currentTest.title + '-putInputTagCannonicalUrl')
     }
 
     clickToButtonSaveTag() {
         cy.get(tagLocators.buttonSaveTag).click();
         cy.wait(1000)
-        cy.screenshot('tag_save_button_clicked')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonSaveTag')
     }
 
     clickToLinkFirstTagList() {
         cy.get(tagLocators.linkFirstTagList).first().click()
         cy.wait(1000)
-        cy.screenshot('tag_link_first_on_list_clicked')
+        cy.screenshot(Cypress.currentTest.title + '-clickToLinkFirstTagList')
     }
 
     clickToButtonTagDelete() {
         cy.get(tagLocators.buttonTagDelete).click()
         cy.wait(1000)
-        cy.screenshot('tag_delete_button_clicked')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonTagDelete')
     }
 
     clickToButtonTagAcceptModal() {
         cy.get(tagLocators.buttonTagAcceptModal).click()
         cy.wait(1000)
-        cy.screenshot('tag_accept_modal_button_clicked')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonTagAcceptModal')
     }
 
     clickToButtonTagRejectModal() {
         cy.get(tagLocators.buttonTagRejectModal).first().click()
         cy.wait(1000)
-        cy.screenshot('tag_reject_modal_button_clicked')
+        cy.screenshot(Cypress.currentTest.title + '-clickToButtonTagRejectModal')
     }
 
     verifyNewTitleTag() {    
@@ -104,7 +112,7 @@ const tagLocators = {
     clickToButtonLeaveModal() {
         cy.get(tagLocators.buttonLeave).click()
         cy.wait(1000)
-        cy.screenshot('tag_leave_modal_button_clicked')
+        cy.screenshot(Cypress.currentTest.title + '-verifyNewTitleTag')
     }
 
     verifyTitleTag() {    

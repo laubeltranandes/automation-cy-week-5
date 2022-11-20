@@ -27,19 +27,19 @@ export class dashboardPage {
   navigateToMemberDetails(){
     cy.xpath(dashboardLocators.member).last().click()
     cy.wait(1000)
-    cy.screenshot('navigate_to_member_detail')
+    cy.screenshot(Cypress.currentTest.title + '-navigateToMemberDetails')
   }
 
   navigateToAddMember() {
     cy.get(dashboardLocators.invitePeopleButton).first().click()
     cy.wait(1000)
-    cy.screenshot('navigate_to_add_member')
+    cy.screenshot(Cypress.currentTest.title + '-navigateToAddMember')
   }
 
   navigateToMembers(){
     cy.get(dashboardLocators.membersLink).first().click()
     cy.wait(1000)
-    cy.screenshot('navigate_to_members')
+    cy.screenshot(Cypress.currentTest.title + '-navigateToMembers')
   }
 
   clickNewMemberButton() {
@@ -50,28 +50,33 @@ export class dashboardPage {
 
   verifyNumberOfMembers(numberOfMembers) {
     cy.get(dashboardLocators.membersCounter).should('have.text', numberOfMembers)
+    cy.screenshot(Cypress.currentTest.title + '-verifyNumberOfMembers')
   }
 
   navigateToDashboard() {
     cy.get(dashboardLocators.dashboardLink).click()
     cy.wait(1000)
-    cy.screenshot('navigate_to_dashboard')
+    cy.screenshot(Cypress.currentTest.title + '-navigateToDashboard')
   }
 
   verifyTotalMembersSection() {
     cy.get(dashboardLocators.totalMembersSectionLabel).contains("Total members")
+    cy.screenshot(Cypress.currentTest.title+ '-verifyTotalMembersSection')
   };
 
   verifyTopSourcesSection() {
     cy.get(dashboardLocators.topSourcesSectionLabel).contains("Top sources")
+    cy.screenshot(Cypress.currentTest.title + '-verifyTopSourcesSection')
   };
 
   verifyEngagementSection() {
     cy.get(dashboardLocators.engagementSectionLabel).contains("Engagement")
+    cy.screenshot(Cypress.currentTest.title + '-verifyEngagementSection')
   };
 
   verifyRecentPostSection() {
     cy.get(dashboardLocators.recentPostSectionLabel).contains("Recent posts")
+    cy.screenshot(Cypress.currentTest.title + '-verifyRecentPostSection')
   };
 
 }
