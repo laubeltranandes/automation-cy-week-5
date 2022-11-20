@@ -1,3 +1,4 @@
+import GLOBAL_CONST from "../support/globalConst";
 
 
 const dashboardLocators = {
@@ -19,56 +20,55 @@ export class dashboardPage {
   navigateToMemberDetails(){
     cy.xpath(dashboardLocators.member).last().click()
     cy.wait(1000)
-    cy.screenshot('navigate_to_member_detail')
+    cy.screenshot(GLOBAL_CONST.dashboard + '-navigateToMemberDetails')
   }
 
   navigateToAddMember() {
     cy.get(dashboardLocators.addMembersLink).click()
     cy.wait(1000)
-    cy.screenshot('navigate_to_add_member')
+    cy.screenshot(GLOBAL_CONST.dashboard + '-navigateToAddMember')
   }
 
   navigateToMembers(){
     cy.get(dashboardLocators.membersLink).first().click()
     cy.wait(1000)
-    cy.screenshot('navigate_to_members')
+    cy.screenshot(GLOBAL_CONST.dashboard + '-navigateToMembers')
   }
 
   clickNewMemberButton() {
     cy.get(dashboardLocators.newMemberButton).first().click()
     cy.wait(1000)
-    cy.screenshot('new_member_page')
+    cy.screenshot(GLOBAL_CONST.dashboard + '-clickNewMemberButton')
   }
 
   verifyNumberOfMembers(numberOfMembers) {
     cy.get(dashboardLocators.membersCounter).should('have.text', numberOfMembers)
+    cy.screenshot(GLOBAL_CONST.dashboard + '-verifyNumberOfMembers')
   }
 
   navigateToDashboard() {
     cy.get(dashboardLocators.dashboardLink).first().click()
     cy.wait(1000)
-    cy.screenshot('navigate_to_dashboard')
+    cy.screenshot(GLOBAL_CONST.dashboard + '-navigateToDashboard')
   }
 
   verifyTotalMembersSection() {
     cy.get(dashboardLocators.totalMembersSectionLabel).contains("Total members")
+    cy.screenshot(GLOBAL_CONST.dashboard + '-verifyTotalMembersSection')
   };
 
   verifyTopSourcesSection() {
     cy.get(dashboardLocators.topSourcesSectionLabel).contains("Top sources")
+    cy.screenshot(GLOBAL_CONST.dashboard + '-verifyTopSourcesSection')
   };
 
   verifyEngagementSection() {
     cy.get(dashboardLocators.engagementSectionLabel).contains("Engagement")
+    cy.screenshot(GLOBAL_CONST.dashboard + '-verifyEngagementSection')
   };
 
   verifyRecentPostSection() {
     cy.get(dashboardLocators.recentPostSectionLabel).contains("Recent posts")
+    cy.screenshot(GLOBAL_CONST.dashboard + '-verifyRecentPostSection')
   };
-
 }
-
-
-
-
-

@@ -1,3 +1,5 @@
+import GLOBAL_CONST from "../support/globalConst";
+
 const tagLocators = {
     tagLink:"a[href='#/tags/'",
     newTagButton: "a[href='#/tags/new/'",
@@ -24,75 +26,80 @@ const tagLocators = {
     navigateToTagLink() {
         cy.get(tagLocators.tagLink).first().click()
         cy.wait(1000)
-        cy.screenshot('navigate_to_tags_link')
+        cy.screenshot(GLOBAL_CONST.tags + '-navigateToTagLink')
     }
 
     clickToNewTagButton() {
         cy.get(tagLocators.newTagButton).first().click()
         cy.wait(1000)
-        cy.screenshot('tag_new_tag_button_clicked')
+        cy.screenshot(GLOBAL_CONST.tags + '-clickToNewTagButton')
     }
 
     putInputTagName() {
         cy.get(tagLocators.inputTagName).type('Tag test cypress 1')
+        cy.screenshot(GLOBAL_CONST.tags + '-putInputTagName')
     }
 
     putTextAreaTagDescription() {
         cy.get(tagLocators.textAreaTagDescription).type('Tag test descriptioncypress 1')
+        cy.screenshot(GLOBAL_CONST.tags + '-putTextAreaTagDescription')
     }
 
     putInputTagColor() {
         cy.get(tagLocators.inputTagColor).type('bd4747')
+        cy.screenshot(GLOBAL_CONST.tags + '-putInputTagColor')
     }
 
     clickToButtonTagExpand() {
         cy.get(tagLocators.buttonTagExpand).first().click()
         cy.wait(1000)
-        cy.screenshot('tag_expand_button_clicked')
+        cy.screenshot(GLOBAL_CONST.tags + '-clickToButtonTagExpand')
     }
 
     putInputTagMetaTitle() {
         cy.get(tagLocators.inputTagMetaTitle).type('Meta tittle cypress 1')
         cy.wait(1000)
-        cy.screenshot('tag_settings_added')
+        cy.screenshot(GLOBAL_CONST.tags + '-putInputTagMetaTitle')
     }
 
     putTextAreaTagMetaDescription() {
         cy.get(tagLocators.textAreaTagMetaDescription).type('Meta description cypress 2')
+        cy.screenshot(GLOBAL_CONST.tags + '-putTextAreaTagMetaDescription')
     }
 
     putInputTagCannonicalUrl() {
         cy.get(tagLocators.inputTagCannonicalUrl).type('http://localhost:2369/test')
+        cy.screenshot(GLOBAL_CONST.tags + '-putInputTagCannonicalUrl')
     }
 
     clickToButtonSaveTag() {
         cy.get(tagLocators.buttonSaveTag).click();
         cy.wait(1000)
-        cy.screenshot('tag_save_button_clicked')
+        cy.screenshot(GLOBAL_CONST.tags + '-clickToButtonSaveTag')
     }
 
     clickToLinkFirstTagList() {
         cy.get(tagLocators.linkFirstTagList).first().click()
         cy.wait(1000)
-        cy.screenshot('tag_link_first_on_list_clicked')
+        cy.screenshot(GLOBAL_CONST.tags + '-clickToLinkFirstTagList')
     }
 
     clickToButtonTagDelete() {
         cy.get(tagLocators.buttonTagDelete).click()
         cy.wait(1000)
-        cy.screenshot('tag_delete_button_clicked')
+        cy.screenshot(GLOBAL_CONST.tags + '-clickToButtonTagDelete')
     }
 
     clickToButtonTagAcceptModal() {
         cy.get(tagLocators.buttonTagAcceptModal).click()
         cy.wait(1000)
-        cy.screenshot('tag_accept_modal_button_clicked')
+        cy.screenshot(GLOBAL_CONST.tags + '-clickToButtonTagAcceptModal')
     }
 
     clickToButtonTagRejectModal() {
         cy.get(tagLocators.buttonTagRejectModal).click()
         cy.wait(1000)
-        cy.screenshot('tag_reject_modal_button_clicked')
+        cy.screenshot(GLOBAL_CONST.tags + '-clickToButtonTagRejectModal')
     }
 
     verifyNewTitleTag() {    
@@ -104,7 +111,7 @@ const tagLocators = {
     clickToButtonLeaveModal() {
         cy.get(tagLocators.buttonLeave).click()
         cy.wait(1000)
-        cy.screenshot('tag_leave_modal_button_clicked')
+        cy.screenshot(GLOBAL_CONST.tags + '-verifyNewTitleTag')
     }
 
     verifyTitleTag() {    
@@ -114,13 +121,12 @@ const tagLocators = {
     }
 
     editColorAndTitleItems(){     
-       cy.get(tagLocators.inputTagName).clear()
-       cy.get(tagLocators.inputTagName).type('Tag Editado test cypress 1');
-
-       cy.get(tagLocators.inputTagColor).clear()
-       cy.get(tagLocators.inputTagColor).type('e50b0b')
-       cy.wait(1000)
-       cy.screenshot('tag_edit_color_and_title_items')
+         cy.get(tagLocators.inputTagName).clear()
+         cy.get(tagLocators.inputTagName).type('Tag Editado test cypress 1');
+         cy.get(tagLocators.inputTagColor).clear()
+         cy.get(tagLocators.inputTagColor).type('e50b0b')
+         cy.wait(1000)
+         cy.screenshot(GLOBAL_CONST.tags + '-editColorAndTitleItems')
     }
 
     naviageteReturnList(){

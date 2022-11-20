@@ -1,4 +1,5 @@
 import URL from "../support/AppUrls";
+import GLOBAL_CONST from "../support/globalConst";
 
 
 const loginLocators = {
@@ -10,6 +11,8 @@ const loginLocators = {
 export class loginPage {
   goToLoginPage() {
     cy.visit(URL.LandingPageUrl);
+    cy.wait(2000)
+    cy.screenshot(GLOBAL_CONST.login + '-goToLoginPage')
   }
 
   login() {
@@ -17,6 +20,6 @@ export class loginPage {
     cy.get(loginLocators.passwordTextBox).type(URL.password)
     cy.get(loginLocators.signInButton).click()
     cy.wait(2000)
-    cy.screenshot('user_logged_in')
+    cy.screenshot(GLOBAL_CONST.login + '-login')
   }
 }
