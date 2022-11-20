@@ -4,7 +4,7 @@ import URL from "../support/AppUrls";
 const loginLocators = {
   emailTextBox: "input[class='email ember-text-field gh-input ember-view']",
   passwordTextBox: "input[class='password ember-text-field gh-input ember-view']",
-  signInButton: "button[class='login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view']",
+  signInButton: "button[class='login gh-btn gh-btn-blue gh-btn-block gh-btn-icon ember-view']",
 };
 
 export class loginPage {

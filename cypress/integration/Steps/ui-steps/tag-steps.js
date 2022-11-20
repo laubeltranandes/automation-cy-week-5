@@ -13,7 +13,7 @@ When(/^a new tag is created$/, function () {
   tagPageObj.putTextAreaTagMetaDescription();
   tagPageObj.putInputTagCannonicalUrl();
   tagPageObj.clickToButtonSaveTag();     
-  tagPageObj.clickToButtonLeaveModal();
+//   tagPageObj.clickToButtonLeaveModal();
 });
 
 

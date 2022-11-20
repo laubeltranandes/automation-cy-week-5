@@ -3,17 +3,17 @@ const tagLocators = {
     newTagButton: "a[href='#/tags/new/'",
     inputTagName: "input[id='tag-name']",
     textAreaTagDescription: "textarea[id='tag-description']",
-    inputTagColor: "input[placeholder='15171A']",
-    buttonTagExpand: "div .gh-expandable-header > button",
+    inputTagColor: "input[name='accent-color']",
+    buttonTagExpand: "button[class='gh-btn']",
     inputTagMetaTitle: "input[id='meta-title']",
     textAreaTagMetaDescription: "textarea[id='meta-description']",
     inputTagCannonicalUrl: "input[id='canonical-url']",
-    buttonSaveTag: "button[class='gh-btn gh-btn-primary gh-btn-icon ember-view']",
+    buttonSaveTag: "button[class='gh-btn gh-btn-blue gh-btn-icon ember-view']",
     linkFirstTagList:"a[href='#/tags/tag-test-cypress-1/']",
     buttonLeave:"button[class='gh-btn gh-btn-red']",
-    buttonTagDelete: "button[class='gh-btn gh-btn-red gh-btn-icon']",
+    buttonTagDelete: "button[class='gh-btn gh-btn-red gh-btn-icon mb15']",
     buttonTagAcceptModal: "button[class='gh-btn gh-btn-red gh-btn-icon ember-view']",
-    buttonTagRejectModal: "button[class='gh-btn']",
+    buttonTagRejectModal: "button[class='gh-btn gh-btn-red gh-btn-icon ember-view']",
     messageError: "span[class='error']",
     tittleTag: "h2[class='gh-canvas-title']",
     tagName: "h3[class='gh-tag-list-name']",
@@ -90,7 +90,7 @@ const tagLocators = {
     }
 
     clickToButtonTagRejectModal() {
-        cy.get(tagLocators.buttonTagRejectModal).click()
+        cy.get(tagLocators.buttonTagRejectModal).first().click()
         cy.wait(1000)
         cy.screenshot('tag_reject_modal_button_clicked')
     }
@@ -114,13 +114,12 @@ const tagLocators = {
     }
 
     editColorAndTitleItems(){     
-       cy.get(tagLocators.inputTagName).clear()
-       cy.get(tagLocators.inputTagName).type('Tag Editado test cypress 1');
-
-       cy.get(tagLocators.inputTagColor).clear()
-       cy.get(tagLocators.inputTagColor).type('e50b0b')
-       cy.wait(1000)
-       cy.screenshot('tag_edit_color_and_title_items')
+         cy.get(tagLocators.inputTagName).clear()
+         cy.get(tagLocators.inputTagName).type('Tag Editado test cypress 1', {force: true}) ;
+         cy.get(tagLocators.inputTagColor).clear()
+         cy.get(tagLocators.inputTagColor).type('e50b0b', {force: true})
+         cy.wait(1000)
+         cy.screenshot(Cypress.currentTest.title + '-editColorAndTitleItems')
     }
 
     naviageteReturnList(){
