@@ -24,7 +24,9 @@ Ejecutar el comando de instalación de librerias que contiene el proyecto:
 Ejecutar las pruebas usando el comando:
 
 🟢 `cypress run --headless o npx cypress open --config-file cypress.json`
+
 Con ayuda del asistente de cypress ejecute cada uno de los features
+
 **Nota**: 
 - Para ejecutar las pruebas de la versión bajo pruebas de la semana 5, debe estar ubicado en la rama llamada **main**
 - Para ejecutar las pruebas de la versión bajo pruebas de la semana 6, debe estar ubicado en la rama llamada **week-6**
@@ -37,7 +39,9 @@ V3.42
 V5.1
 🐳 `docker run -d -e url=http://localhost:2368 -p 2368:2368 --name ghost_5.1 ghost:5.1`
 
-## Posteriormente siga las instrucciones del README del repositorio [resemble](https://github.com/dario-buitrago-andes/ghost-regresion-resemble) para obtener un informe de regresión visual mas detallado
+## Posteriormente
+
+Siga las instrucciones del README del repositorio [resemble](https://github.com/dario-buitrago-andes/ghost-regresion-resemble) para obtener un informe de regresión visual mas detallado
 
 
 <H2><b>Features Incluidos : </b></H2>
