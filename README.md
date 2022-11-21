@@ -1,4 +1,4 @@
-"# automatizacion-semana5-cypress" 
+<h1>automatizacion-semana5-cypress</h1>
 
 Conformación:
 
@@ -21,7 +21,16 @@ npm install
 
 Ejecutar las pruebas usando el comando:
 
-cypress run --headless o npx cypress open --config-file cypress.json
+🟢 cypress run --headless o npx cypress open --config-file cypress.json
+
+Para Correr las dos versiones de ghost se ejecuta usando el comando (es necesario tener docker instalado) : 
+
+V3.42
+🐳 docker run -d -e url=http://localhost:3001 -p 3001:2368 --name ghost_3.42 ghost:3.42
+
+V5.1
+🐳 docker run -d -e url=http://localhost:2368 -p 2368:2368 --name ghost_5.1 ghost:5.1
+
 
 <H2><b>Features Incluidos : </b></H2>
 <ul>
