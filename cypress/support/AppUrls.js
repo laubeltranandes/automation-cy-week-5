@@ -1,6 +1,6 @@
 const URL = {
   LandingPageUrl: "http://localhost:3001/ghost",
-  user: "test@test.com",
+  user: "laura@test.com",
   password: "Test123456"
 };
 

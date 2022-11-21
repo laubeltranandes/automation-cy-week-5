@@ -62,7 +62,7 @@ export class pagesPage {
   }
 
   clickToPublisRightNowhButton() {
-    cy.get(tagLocators.publishRightNowButton).first().click().screenshot('publish_right_now_screen')
+    cy.get(tagLocators.publishRightNowButton).first().click()
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-clickToPublishRightNowButton')
   }
