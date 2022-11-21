@@ -47,7 +47,16 @@ Para las pruebas que corresponden a dashboard se realizó lo siguiente:
   </ol>
  </li>
  <li> Creación de nuevo page object dashboard-page.js </li>
- <li> Creación de nuevo steps dashboard-steps.js </li>
+ <li> Creación de nuevo steps dashboard-steps.js en los cuales se crean los siguientes pasos: 
+    <ol>
+     <li>Creacion de nuevo miembro</li>
+     <li>Total de miembros </li>
+     <li>Navegacion al dashboard</li>
+     <li>Total de miembros mostrada </li>
+     <li>Secciones de Engagement , top resources y post mostradas</li>
+     <li>Eliminar usuarios </li>
+  </ol>
+ </li>
  </ul>
 
 <H2><b>Ejecución pruebas de tags:</b></H2>
