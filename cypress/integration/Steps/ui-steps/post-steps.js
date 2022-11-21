@@ -55,7 +55,7 @@ And(
 And(
     /^user types Draft post test 1 as a post title$/,
     function () {
-        postPageObj.typeTextAreaPostTitle('Post published test 1');
+        postPageObj.typeTextAreaPostTitle('Draft post test 1');
     }
 );
 
@@ -156,7 +156,6 @@ And(
     /^user clicks in modal delete button$/,
     function () {
         postPageObj.clickToButtonConfirmDeleteDraftPost();
-        cy.wait(5000)
     }
 );
 
@@ -171,7 +170,6 @@ And(
     /^user clicks in first post item to see$/,
     function () {
         postPageObj.clickToButtonEditFirstItem();
-        cy.wait(5000)
     }
 );
 
@@ -179,35 +177,34 @@ And(
     /^user clicks in first post item to edit$/,
     function () {
         postPageObj.clickToButtonEditFirstItem();
-        cy.wait(5000)
     }
 );
 
 Then(
     /^verify Post test 1 is in the post list$/,
     function () {
-      expect(postPageObj.verifyPostTitleOnList('Post test 1')).not.to.be.undefined;
+      postPageObj.verifyPostTitleOnList('Post test 1');
     }
   );
 
 Then(
     /^verify Post published test 1 is in the post list$/,
     function () {
-      expect(postPageObj.verifyPostTitleOnList('Post published test 1')).not.to.be.undefined;
+      postPageObj.verifyPostTitleOnList('Post published test 1');
     }
   );
 
 Then(
     /^verify Draft post test 1 is in the post list$/,
     function () {
-      expect(postPageObj.verifyPostTitleOnList('Draft post test 1')).not.to.be.undefined;
+      postPageObj.verifyPostTitleOnList('Draft post test 1');
     }
   );
 
 Then(
     /^verify Draft post test 1 to delete is not in the post list$/,
     function () {
-      expect(postPageObj.verifyPostTitleOnList('Draft post test 1 to delete')[0]).to.be.undefined;
+      postPageObj.verifyPostTitleNotOnList('Draft post test 1 to delete');
     }
   );
 

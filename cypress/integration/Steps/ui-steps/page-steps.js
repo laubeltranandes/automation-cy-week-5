@@ -8,20 +8,20 @@ When(/^a new page is created$/, function () {
     pagesPageObj.putInputPageTitle();
     pagesPageObj.putTextAreaPageDescription();
     pagesPageObj.clickToPublishButton();
-    pagesPageObj.clickToContinuePublishButton();
-    pagesPageObj.clickToPublisRightNowhButton();
-    pagesPageObj.clickToBackToEditorButton();     
+    pagesPageObj.clickToPublisRightNowhButton();    
 });
 
 When(/^user edit the page$/, function () {
     pagesPageObj.putInputPageEditedTitle();
     pagesPageObj.putTextAreaPageDescription();
     pagesPageObj.clickOnUpdatePageButton();
+    pagesPageObj.clickOnUpdateConfirmPageButton();
 });
 
 When(/^user unpublish the page$/, function () {
+    pagesPageObj.clickOnUpdatePageButton();
     pagesPageObj.clickOnUnpublishPageButton();
-    pagesPageObj.clickOnConfirmationUnpublishPageButton();
+    pagesPageObj.clickOnUpdateConfirmPageButton();
 });
 
 When(/^user delete the page$/, function () {
@@ -35,11 +35,8 @@ When(/^a new page is scheduled$/, function () {
     pagesPageObj.putTextAreaPageDescription();
     pagesPageObj.clickToPublishButton();
     pagesPageObj.clickOnSelectPublishPageModeButton();
-    pagesPageObj.selectScheduleForLateOption();
     pagesPageObj.selectSetTwoDaysLater();
-    pagesPageObj.clickToContinuePublishButton();
-    pagesPageObj.clickToPublisRightNowhButton();
-    pagesPageObj.clickOnGoBackToPageEditorButton();     
+    pagesPageObj.clickOnUpdateConfirmPageButton();
 });
 
 Then(
