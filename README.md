@@ -59,6 +59,63 @@ Para las pruebas que corresponden a dashboard se realizó lo siguiente:
  </li>
  </ul>
 
+<H2><b>Ejecución pruebas de Pages:</b></H2>
+Para las pruebas que corresponden a pages se realizó lo siguiente:
+<ul>
+ <li> Clonar el repositorio. </li>
+ <li> Instalar las librerías de node js </li>
+ <li> Creación de nuevo feature pages.feature en el cual se cubrieron los siguientes escenarios : 
+  <ol>
+   <li>Verificar que el usuario pueda crear pagina y visualizarla</li>
+   <li>Verificar que el usuario pueda editar pagina y visualizarla</li>
+   <li>Verificar que el usuario pueda despublicar una pagina</li>
+   <li>Verificar que el usuario pueda borrar una pagina y actualizar la lista</li>
+   <li>Verificar que el usuario pueda programar la publicacion de una pagina</li>
+  </ol>
+ </li>
+ <li> Creación de nuevo page object pages-page.js </li>
+ <li> Creación de nuevo steps pages-steps.js en los cuales se crean los siguientes pasos: 
+    <ol>
+     <li>Creacion de nueva pagina</li>
+     <li>Edicion de pagina </li>
+     <li>Despublicar pagina</li>
+     <li>Borrar pagina</li>
+     <li>Agendar publicacion pagina</li>
+     <li>Verificar titulo</li>
+      <li>Navegacion de las paginas</li>
+      <li>Click en nueva pagina</li>
+      <li>Verificar estado de la pagina</li>
+  </ol>
+ </li>
+ </ul>
+
+<H2><b>Ejecución pruebas de Post:</b></H2>
+Para las pruebas que corresponden a post se realizó lo siguiente:
+<ul>
+ <li> Clonar el repositorio. </li>
+ <li> Instalar las librerías de node js </li>
+ <li> Creación de nuevo feature post.feature en el cual se cubrieron los siguientes escenarios : 
+  <ol>
+   <li>Verificar que el usuario pueda crear un post y visualizarlo</li>
+   <li>Verificar que el usuario pueda crear el borrador de un post y visualizarlo</li>
+   <li>Verificar que el usuario pueda eliminar el borrador de un post y visualizarlo</li>
+   <li>Verificar que el usuario pueda programar la publicacion de un post</li>
+  </ol>
+ </li>
+ <li> Creación de nuevo page object post-page.js </li>
+ <li> Creación de nuevo steps post-steps.js en los cuales se crean los siguientes pasos: 
+    <ol>
+     <li>Creacion de nuevo post </li>
+     <li>Crear borrador post </li>
+     <li>Verificar la lista de post</li>
+     <li>Click para editar post</li>
+     <li>Visualizacion de post</li>
+      <li>Verificar estado del post</li>
+  </ol>
+ </li>
+ </ul>
+
+
 <H2><b>Ejecución pruebas de tags:</b></H2>
 Para las pruebas que corresponden a tags se realizó lo siguiente:
 <ul>
