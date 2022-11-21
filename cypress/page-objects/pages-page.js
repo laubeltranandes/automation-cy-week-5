@@ -2,24 +2,27 @@ const tagLocators = {
   pagesLink:"a[href='#/pages/']",
   newPageButton: "a[href='#/editor/page/']",
   inputPageTitle: "textarea[class='gh-editor-title ember-text-area gh-input ember-view']",
+  inputPageEditTitle: "textarea[class='gh-editor-title ember-text-area gh-input ember-view']",
   textAreaPageDescriptionContent: "div.koenig-editor__editor.__mobiledoc-editor",
-  publishButton: "button[class='gh-btn gh-btn-editor darkgrey gh-publish-trigger']",
-  continuePublishButton: "button[class='gh-btn gh-btn-black gh-btn-large']",
-  publishRightNowButton: "button[class='gh-btn gh-btn-large gh-btn-pulse ember-view']",
+  publishButton: "div[class='ember-view ember-basic-dropdown-trigger  gh-btn gh-btn-outline gh-publishmenu-trigger']",
+  publishRightNowButton: "button[class='gh-btn gh-btn-blue gh-publishmenu-button gh-btn-icon ember-view']",
   backToEditorButton: "button[class='gh-back-to-editor']",
   pageTitle: "h3[class='gh-content-entry-title']",
-  pageStatus: 'p[class="gh-content-entry-status"]',
-  pageItemList: "li[class='gh-list-row gh-posts-list-item gh-posts-list-item-labs gh-post-list-plain-status']",
-  updateButton: 'button[class="gh-btn gh-btn-editor gh-editor-save-trigger green ember-view"]',
+  pageStatus: 'span[class="gh-content-status-draft gh-badge gh-badge-purple nowrap"]',
+  pageScheduledStatus: 'span[class="gh-content-status-draft gh-badge nowrap"]',
+  pageItemList: "li[class='gh-list-row gh-posts-list-item']",
+  updateButton: 'div[class="ember-view ember-basic-dropdown-trigger  gh-btn gh-btn-outline gh-publishmenu-trigger"]',
+  updateConfirmbutton: 'button[class="gh-btn gh-btn-blue gh-publishmenu-button gh-btn-icon ember-view"]',
   unpublishButton: 'button[class="gh-btn gh-btn-editor darkgrey gh-unpublish-trigger"]',
   confirmationUnpublishButton: 'button[class="gh-revert-to-draft"]',
-  pageSettingButton: 'button[class="settings-menu-toggle gh-btn gh-btn-editor gh-btn-icon icon-only gh-btn-action-icon"]',
+  pageSettingButton: 'button[class="post-settings"]',
   deletePageButton: 'button[class="gh-btn gh-btn-hover-red gh-btn-icon settings-menu-delete-button"]',
   confirmationDeletePageButton: 'button[class="gh-btn gh-btn-red gh-btn-icon ember-view"]',
   publishPageModeButton: 'button[class="gh-publish-setting-title "]',
   scheduleForLateButton: 'div .gh-publish-schedule > div',
   dateToScheduleInput: 'div .ember-power-calendar > div:first-child > div:first-child > input',
-  goBackToPageEditorButton: 'button[class="gh-btn-editor gh-publish-back-button"]'
+  goBackToPageEditorButton: 'button[class="gh-btn-editor gh-publish-back-button"]',
+  unpublishRadioButton: 'div[class="gh-publishmenu-radio-button"]'
 };
 
 export class pagesPage {
@@ -31,14 +34,12 @@ export class pagesPage {
   }
 
   clickToNewPageButton() {
-    cy.screenshot('pages_list')
     cy.get(tagLocators.newPageButton).first().click()
     cy.wait(1000)
     cy.screenshot(Cypress.currentTest.title + '-clickToNewPageButton')
   }
 
   putInputPageTitle() {
-    cy.screenshot('pages_editor_before_create')
     cy.get(tagLocators.inputPageTitle).type('Page test cypress 1')
     cy.screenshot(Cypress.currentTest.title + '-putInputPageTitle')
   }
@@ -49,147 +50,133 @@ export class pagesPage {
   }
 
   clickToPublishButton() {
-    cy.screenshot('added_page_title_and_content')
     cy.get(tagLocators.publishButton).first().click()
     cy.wait(1000)
     cy.screenshot(Cypress.currentTest.title + '-clickToPublishButton')
   }
 
   clickToContinuePublishButton() {
-    cy.screenshot('publish_confirmation_screen')
     cy.get(tagLocators.continuePublishButton).first().click()
     cy.wait(1000)
     cy.screenshot(Cypress.currentTest.title + '-clickToContinuePublishButton')
   }
 
   clickToPublisRightNowhButton() {
-    //cy.screenshot('publish_right_now_screen')
     cy.get(tagLocators.publishRightNowButton).first().click().screenshot('publish_right_now_screen')
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-clickToPublishRightNowButton')
   }
 
   clickToBackToEditorButton() {
-    cy.screenshot('confirmed_publishing')
     cy.get(tagLocators.backToEditorButton).first().click()
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-clickToBackToEditorButton')
   }
 
   verifyTitleNewPage() {    
-    cy.screenshot('pages_list_after_create')
     cy.get(tagLocators.pageTitle).first().should('contain', "Page test cypress 1")
     cy.screenshot(Cypress.currentTest.title + '-verifyTitleNewPage')
   }
 
   clickFirstPage() {
-    cy.screenshot('pages_list_to_select')
     cy.get(tagLocators.pageItemList).first().click()
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-clickFirstPage')
   }
 
   putInputPageEditedTitle() {
-    cy.screenshot('page_editor_before_edit')
-    cy.get(tagLocators.inputPageTitle).type(' Edited')
+    cy.get(tagLocators.inputPageEditTitle).type(' Edited')
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-putInputPageEditedTitle')
   }
 
   clickOnUpdatePageButton() {
-    cy.screenshot('page_editor_after_edit')
     cy.get(tagLocators.updateButton).first().click()
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-clickOnUpdatePageButton')
   }
 
+  clickOnUpdateConfirmPageButton() {
+    cy.get(tagLocators.updateConfirmbutton).first().click()
+    cy.wait(3000);
+    cy.screenshot(Cypress.currentTest.title + '-clickOnUpdateConfirmPageButton')
+  }
+
   verifyTitleEditedPage() {    
-    cy.screenshot('pages_list_after_edit')
     cy.get(tagLocators.pageTitle).first().should('contain', 'Page test cypress 1 Edited')
     cy.screenshot(Cypress.currentTest.title + '-verifyTitleEditedPage')
   }
 
   clickOnUnpublishPageButton() {  
-    cy.screenshot('page_editor_before_unpublish')  
-    cy.get(tagLocators.unpublishButton).first().click()
+    cy.get(tagLocators.unpublishRadioButton).first().click()
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-clickOnUnpublishPageButton')
   }
 
   clickOnConfirmationUnpublishPageButton() {    
-    cy.screenshot('page_unpublish_confirmation_screen') 
     cy.get(tagLocators.confirmationUnpublishButton).first().click()
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-clickOnConfirmationUnpublishPageButton')
   }
 
   verifyStatusUnpublishedPage() {  
-    cy.screenshot('pages_list_after_unpublish')   
     cy.get(tagLocators.pageStatus).first().should('contain', 'Draft')
     cy.screenshot(Cypress.currentTest.title + '-verifyStatusUnpublishedPage')
   }
 
   clickOnPageSettingButton() {   
-    cy.screenshot('page_editor_before_delete') 
     cy.get(tagLocators.pageSettingButton).first().click()
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-clickOnPageSettingButton')
   }
 
   clickOnDeletePageButton() {    
-    cy.screenshot('page_delete_click')
     cy.get(tagLocators.deletePageButton).first().click()
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-clickOnDeletePageButton')
   }
 
   clickConfirmationDeletePageButton() {    
-    cy.screenshot('page_delete_confirmation')
     cy.get(tagLocators.confirmationDeletePageButton).first().click()
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-clickConfirmationDeletePageButton')
   }
 
   verifyPageIsNotInList() {
-    cy.screenshot('pages_list_after_delete')
     cy.get(tagLocators.pageTitle).first().should('not.contain', 'Page test cypress 1 Edited')
     cy.screenshot(Cypress.currentTest.title + '-verifyPageIsNotInList')
   }
 
   clickOnSelectPublishPageModeButton() {
-    cy.screenshot('open_page_publishing_options')
-    cy.get(tagLocators.publishPageModeButton).first().click()
+    cy.get(tagLocators.unpublishRadioButton).last().click()
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-clickOnSelectPublishPageModeButton')
   }
 
   selectScheduleForLateOption() {
-    cy.screenshot('select_schedule_page_publish_for_late_option')
     cy.get(tagLocators.scheduleForLateButton).last().click()
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-selectScheduleForLateOption')
   }
 
   selectSetTwoDaysLater() {
-    cy.screenshot('enabled_date_picker_to_schedule_page_publish')
     let date = new Date();
     date.setDate(date.getDate() + 2);
-    cy.get(tagLocators.dateToScheduleInput).clear()
-    cy.get(tagLocators.dateToScheduleInput).type(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate())
+    let inputDateElement = cy.get(tagLocators.dateToScheduleInput).first()
+    inputDateElement.clear()
+    inputDateElement.type(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate())
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-selectSetTwoDaysLater')
   }
 
   clickOnGoBackToPageEditorButton() {
-    cy.screenshot('page_scheduling_finished')
     cy.get(tagLocators.goBackToPageEditorButton).first().click()
     cy.wait(1000);
     cy.screenshot(Cypress.currentTest.title + '-clickOnGoBackToPageEditorButton')
   }
 
   verifyStatusScheduledPage() {
-    cy.screenshot('pages_list_after_sheduling')
-    cy.get(tagLocators.pageStatus).first().should('contain', 'Scheduled')
+    cy.get(tagLocators.pageScheduledStatus).first().should('contain', 'Scheduled')
     cy.screenshot(Cypress.currentTest.title + '-verifyStatusScheduledPage')
   }
 
