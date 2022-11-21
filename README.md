@@ -9,27 +9,35 @@ Conformación:
 | Cardenas Castañeda | Andres Camilo | ac.cardenasc1@uniandes.edu.co | accardenasc1 |
 | Henao Toro | Daniel Felipe | df.henaot1@uniandes.edu.co | dhenaotoro |
 
-Para realizar la instalación, se requiere tener node.js y Cypress preinstalado en la maquina.
+##Pre-requisitos
+- Para realizar la instalación, se requiere tener node.js y Cypress preinstalado en la maquina.
+- Haber clonado el reposotorio de [resemble](https://github.com/dario-buitrago-andes/ghost-regresion-resemble) en la misma ruta donde pretende clonar este proyecto **Es en este direcotorio donde se dejaran las imagenes generadas**
 
 Posteriormente se requiere descargar el repositorio en cuestión en el directorio de trabajo: 
 
-git clone  https://github.com/laubeltranandes/automation-cy-week-5.git
+`git clone  https://github.com/laubeltranandes/automation-cy-week-5.git`
 
 Ejecutar el comando de instalación de librerias que contiene el proyecto:
 
-npm install
+`npm install`
 
 Ejecutar las pruebas usando el comando:
 
-🟢 cypress run --headless o npx cypress open --config-file cypress.json
+🟢 `cypress run --headless o npx cypress open --config-file cypress.json`
+Con ayuda del asistente de cypress ejecute cada uno de los features
+**Nota**: 
+- Para ejecutar las pruebas de la versión bajo pruebas de la semana 5, debe estar ubicado en la rama llamada **main**
+- Para ejecutar las pruebas de la versión bajo pruebas de la semana 6, debe estar ubicado en la rama llamada **week-6**
 
 Para Correr las dos versiones de ghost se ejecuta usando el comando (es necesario tener docker instalado) : 
 
 V3.42
-🐳 docker run -d -e url=http://localhost:3001 -p 3001:2368 --name ghost_3.42 ghost:3.42
+🐳 `docker run -d -e url=http://localhost:3001 -p 3001:2368 --name ghost_3.42 ghost:3.42`
 
 V5.1
-🐳 docker run -d -e url=http://localhost:2368 -p 2368:2368 --name ghost_5.1 ghost:5.1
+🐳 `docker run -d -e url=http://localhost:2368 -p 2368:2368 --name ghost_5.1 ghost:5.1`
+
+## Posteriormente siga las instrucciones del README del repositorio [resemble](https://github.com/dario-buitrago-andes/ghost-regresion-resemble) para obtener un informe de regresión visual mas detallado
 
 
 <H2><b>Features Incluidos : </b></H2>
