@@ -20,7 +20,7 @@ When(/^a new tag is created$/, function () {
 Then(
   /^verify the title tag$/,
   function () {
-    tagPageObj.verifyTitleTag();
+    tagPageObj.verifyNewTitleTag();
   }
 );
 
@@ -82,9 +82,9 @@ And(
 
 
 Then(
-    /^verify the title tag$/,
+    /^verify the title edited tag$/,
     function () {
-      tagPageObj.verifyNewTitleTag();
+      tagPageObj.verifyTitleTag();
     }
   );
 

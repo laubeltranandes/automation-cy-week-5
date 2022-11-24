@@ -3,19 +3,6 @@ import {postPage} from "../../../page-objects/post-page";
 
 const postPageObj = new postPage();
 
-
-When(/^a new post is created$/, function () {
-
-});
-
-
-Then(
-  /^verify the title tag$/,
-  function () {
-    postPageObj.verifyTitleTag();
-  }
-);
-
 And(
     /^user navigates to the post page$/,
     function () {

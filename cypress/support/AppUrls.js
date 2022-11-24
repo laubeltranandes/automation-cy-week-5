@@ -1,7 +1,7 @@
 const URL = {
-  LandingPageUrl: "http://localhost:2368/ghost",
-  user: "la.beltranb1@uniandes.edu.co",
-  password: "Qwertyuiop"
+  LandingPageUrl: "http://localhost:2369/ghost",
+  user: "laura@test.com",
+  password: "Test123456"
 };
 
 export default URL;
