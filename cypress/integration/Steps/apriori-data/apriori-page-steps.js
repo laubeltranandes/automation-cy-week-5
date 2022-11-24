@@ -1,9 +1,9 @@
 import { And, Given, Then, When } from "cypress-cucumber-preprocessor/steps";
-import {pagePage} from "../../../page-objects/page-page";
+import {pagesPage} from "../../../page-objects/pages-page";
 import {MockarooClient} from "../mockarooClient";
 
 let selectedRow;
-const pagePageObj = new pagePage();
+const pagesPageObj = new pagesPage();
 
 Given(/^a priori data should be loaded for page$/, function() {
     const mockarooClient = new MockarooClient();
