@@ -1,4 +1,4 @@
-import {aPrioriData} from "../../../../config/a-priori-data.json";
+const aPrioriData = require("../../../../config/a-priori-data.json");
 var Mockaroo = require('mockaroo');
 
 export class MockarooClient {
