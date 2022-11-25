@@ -5,7 +5,6 @@ import {MockarooClient} from "../mockarooClient/mockarooClient";
 let selectedRow;
 const pagesPageObj = new pagesPage();
 
-Given(/^a priori data should be loaded for page$/, function() {
-    const mockarooClient = new MockarooClient();
-    selectedRow = mockarooClient.getDataPoolRandom();
+Given(/^a priori data should be loaded for page$/, async function() {
+    selectedRow = await mockaroo.getDataPoolRandom();
 });

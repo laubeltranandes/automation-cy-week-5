@@ -9,3 +9,4 @@ Feature: Check post with a-priori-data
       When user is logged in the application
       And user navigates to the post page
       And user clicks in new post button
+      And user types a title

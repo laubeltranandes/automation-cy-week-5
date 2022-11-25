@@ -5,7 +5,6 @@ import {MockarooClient} from "../mockarooClient/mockarooClient";
 let selectedRow;
 const tagPageObj = new tagPage();
 
-Given(/^a priori data should be loaded for tag$/, function() {
-    const mockarooClient = new MockarooClient();
-    selectedRow = mockarooClient.getDataPoolRandom();
+Given(/^a priori data should be loaded for tag$/, async function() {
+    selectedRow = await mockaroo.getDataPoolRandom();
 });

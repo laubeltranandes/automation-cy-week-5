@@ -5,7 +5,6 @@ import {MockarooClient} from "../mockarooClient/mockarooClient";
 let selectedRow;
 const postPageObj = new postPage();
 
-Given(/^a priori data pseudo aletorio should be loaded for post$/, function() {
-    const mockarooClient = new MockarooClient();
-    selectedRow = mockarooClient.getDataPoolFromAPI();
+Given(/^a priori data pseudo aletorio should be loaded for post$/, async function() {
+    selectedRow = await mockaroo.getDataPoolFromAPI();
 });

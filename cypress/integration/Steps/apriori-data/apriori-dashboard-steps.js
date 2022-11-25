@@ -5,7 +5,6 @@ import {MockarooClient} from "../mockarooClient/mockarooClient";
 let selectedRow;
 const dashboardPageObj = new dashboardPage();
 
-Given(/^a priori data should be loaded for dashboard$/, function() {
-    const mockarooClient = new MockarooClient();
-    selectedRow = mockarooClient.getDataPoolRandom();
+Given(/^a priori data should be loaded for dashboard$/, async function() {
+    selectedRow = await mockaroo.getDataPoolRandom();
 });
