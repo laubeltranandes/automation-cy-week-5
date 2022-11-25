@@ -9,12 +9,10 @@ export class MockarooClient {
     MockarooClient(){}
 
     async getDataPoolFromAPI() {
-        this.client.generate({
+        return this.client.generate({
             count: this.amount,
             schema: 'pseudo-aleatorio'
-        }).then((records) => {
-            return records
-        });
+        })
     }
 
     async getDataPoolRandom() {
