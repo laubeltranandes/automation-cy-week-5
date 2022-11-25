@@ -8,7 +8,7 @@ const tagLocators = {
     buttonContinuePublish: "div.gh-publish-cta > button.gh-btn",
     buttonHeaderEditor: "header.gh-publish-header > button.gh-btn-editor",
     buttonPosts: "a[href='#/posts/']",
-    titleTagInsideList: ".gh-posts-list-item-labs .gh-content-entry-title",
+    titleTagInsideList: "ol.posts-list > li.gh-list-row:first-child > a.ember-view:first-child > h3.gh-content-entry-title",
     buttonRightNow: "div.gh-publish-setting.last > button",
     buttonScheduledForLater: "div .gh-publish-schedule .gh-radio:nth-child(2)",
     buttonDrafts: "a[href='#/posts/?type=draft']",
@@ -17,7 +17,12 @@ const tagLocators = {
     buttonEditMenu: "button[title='Settings']",
     buttonDeleteDraftPost: "button.gh-btn.gh-btn-hover-red.gh-btn-icon.settings-menu-delete-button",
     buttonConfirmDeleteDraftPost: "div.modal-footer > button.gh-btn.gh-btn-red.gh-btn-icon.ember-view",
-    h3PublishedItem: "div.gh-tabs-analytics > div.tab-list > button.tab.tab-selected:first-child > h3"
+    h3PublishedItem: "div.gh-tabs-analytics > div.tab-list > button.tab.tab-selected:first-child > h3",
+    urlInput: "input#url",
+    alertBanner: "div.gh-alert-content",
+    dateInput: "input[placeholder='YYYY-MM-DD']",
+    inputExcerpt: "textarea#custom-excerpt",
+    inputTag: "input.ember-power-select-trigger-multiple-input"
   };
   export class postPage {
 
@@ -44,9 +49,37 @@ const tagLocators = {
     }
 
     typeTextAreaPostDescription(text) {
-        cy.get(tagLocators.textAreaPostDescription).type(text, {force: true})
+        cy.get(tagLocators.textAreaPostDescription).innerText = text
         cy.wait(1000)
         cy.screenshot(Cypress.currentTest.title + '-typeTextAreaPostDescription')
+    }
+
+    typeUrlInput(text) {
+        cy.get(tagLocators.urlInput).clear()
+        cy.get(tagLocators.urlInput).type(text, {force: true})
+        cy.wait(1000)
+        cy.screenshot(Cypress.currentTest.title + '-typeUrlInput')
+    }
+
+    typeDateInput(text) {
+        cy.get(tagLocators.dateInput).clear()
+        cy.get(tagLocators.dateInput).type(text, {force: true})
+        cy.wait(1000)
+        cy.screenshot(Cypress.currentTest.title + '-typeDateInput')
+    }
+
+    typeInputExcerpt(text) {
+        cy.get(tagLocators.inputExcerpt).clear()
+        cy.get(tagLocators.inputExcerpt).type(text, {force: true})
+        cy.wait(1000)
+        cy.screenshot(Cypress.currentTest.title + '-typeInputExcerpt')
+    }
+
+    typeTagInput(text) {
+        cy.get(tagLocators.inputTag).first().clear()
+        cy.get(tagLocators.inputTag).first().type(text, {force: true})
+        cy.wait(1000)
+        cy.screenshot(Cypress.currentTest.title + '-typeTagInput')
     }
 
     clickToButtonPostPublish() {
@@ -131,5 +164,9 @@ const tagLocators = {
         return cy.get(tagLocators.h3PublishedItem).then(($h3) => {
             return $h3[0].innerText
         })
+    }
+
+    verifyAlertBanner() {
+        return cy.get(tagLocators.alertBanner).innerText
     }
   }
