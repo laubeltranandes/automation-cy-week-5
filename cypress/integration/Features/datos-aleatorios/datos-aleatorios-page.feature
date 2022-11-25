@@ -1,4 +1,4 @@
-@tags
+@datos-aleatorios-page
 Feature: Check page with random data
 
   Background:

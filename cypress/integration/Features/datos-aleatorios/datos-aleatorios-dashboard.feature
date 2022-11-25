@@ -1,4 +1,4 @@
-@tags
+@datos-aleatorios-dashboard
 Feature: Check dashboard with random data
 
   Background:

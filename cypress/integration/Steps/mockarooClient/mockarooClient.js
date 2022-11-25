@@ -1,11 +1,12 @@
 import {aPrioriData} from "../../../../config/a-priori-data.json";
 var Mockaroo = require('mockaroo');
 
-module.exports = class MockarooClient {
-    constructor() {}
+export class MockarooClient {
 
     amount = 1;
     client = new Mockaroo.Client({ apiKey: '7b77dd30' });
+
+    MockarooClient(){}
 
     async getDataPoolFromAPI() {
         this.client.generate({
@@ -17,7 +18,7 @@ module.exports = class MockarooClient {
     }
 
     async getDataPoolRandom() {
-        let random = this.getRandom(0, records.length);
+        let random = this.getRandom(0, aPrioriData.length);
         return aPrioriData[random];
     }
 

@@ -1,4 +1,4 @@
-@tags
+@apriori-pseudo-dashboard
 Feature: Check dashboard with a-priori-data pseudo random
 
   Background:

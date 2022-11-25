@@ -1,4 +1,4 @@
-@tags
+@apriori-pseudo-tag
 Feature: Check tag with a-priori-data pseudo random
 
   Background:

@@ -1,4 +1,4 @@
-@tags
+@datos-aleatorios-tag
 Feature: Check tag with random data
 
   Background:

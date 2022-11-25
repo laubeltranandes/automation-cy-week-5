@@ -1,4 +1,4 @@
-@tags
+@post
 Feature: Check posts functionality
 
     Background:

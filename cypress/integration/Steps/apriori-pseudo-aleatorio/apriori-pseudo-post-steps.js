@@ -1,6 +1,6 @@
 import { And, Given, Then, When } from "cypress-cucumber-preprocessor/steps";
 import {postPage} from "../../../page-objects/post-page";
-import {MockarooClient} from "../mockarooClient";
+import {MockarooClient} from "../mockarooClient/mockarooClient";
 
 let selectedRow;
 const postPageObj = new postPage();

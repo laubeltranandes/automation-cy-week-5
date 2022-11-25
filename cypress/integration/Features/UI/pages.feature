@@ -1,4 +1,4 @@
-@tags
+@pages
 Feature: Check tags functionality
 
   Background:

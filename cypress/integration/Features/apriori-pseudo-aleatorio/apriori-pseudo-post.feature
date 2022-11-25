@@ -1,4 +1,4 @@
-@tags
+@apriori-pseudo-post
 Feature: Check post with a-priori-data pseudo random
 
   Background:

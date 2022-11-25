@@ -1,4 +1,4 @@
-@tags
+@apriori-tag
 Feature: Check tag with a-priori-data
 
   Background:

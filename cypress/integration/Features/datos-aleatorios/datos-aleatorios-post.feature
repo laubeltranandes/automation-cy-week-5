@@ -1,4 +1,4 @@
-@tags
+@datos-aleatorios-post
 Feature: Check post with random data
 
   Background:

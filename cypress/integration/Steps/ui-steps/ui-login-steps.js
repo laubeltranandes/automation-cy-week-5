@@ -7,6 +7,10 @@ Given(/^user navigates to the login page$/, function () {
   loginPageObj.goToLoginPage();
 });
 
+And(/^user navigates to the login page$/, function () {
+  loginPageObj.goToLoginPage();
+});
+
 When(/^user is logged in the application$/, function () {
     loginPageObj.login();
     cy.wait(5000)

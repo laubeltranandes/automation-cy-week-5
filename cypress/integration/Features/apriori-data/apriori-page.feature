@@ -1,4 +1,4 @@
-@tags
+@apriori-page
 Feature: Check page with a-priori-data
 
   Background:

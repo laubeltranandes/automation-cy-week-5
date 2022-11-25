@@ -1,4 +1,4 @@
-@tags
+@apriori-dashboard
 Feature: Check dashboard with a-priori-data
 
   Background:
