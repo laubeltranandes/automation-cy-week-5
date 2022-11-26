@@ -3,7 +3,7 @@ import URL from "../support/AppUrls";
 const loginLocators = {
   emailTextBox: "#identification",
   passwordTextBox: "#password",
-  signInButton: "#ember6",
+  signInButton: "#ember7",
 };
 
 export class loginPage {

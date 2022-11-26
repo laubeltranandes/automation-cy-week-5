@@ -21,8 +21,10 @@ const tagLocators = {
     urlInput: "input#url",
     alertBanner: "div.gh-alert-content",
     dateInput: "input[placeholder='YYYY-MM-DD']",
+    hourInput: "div.gh-date-time-picker > div.gh-date-time-picker-time > input",
     inputExcerpt: "textarea#custom-excerpt",
-    inputTag: "input.ember-power-select-trigger-multiple-input"
+    inputTag: "input.ember-power-select-trigger-multiple-input",
+    errorText: "div.gh-date-time-picker > div.gh-date-time-picker-error"
   };
   export class postPage {
 
@@ -66,6 +68,13 @@ const tagLocators = {
         cy.get(tagLocators.dateInput).type(text, {force: true})
         cy.wait(1000)
         cy.screenshot(Cypress.currentTest.title + '-typeDateInput')
+    }
+
+    typeHourInput(text) {
+        cy.get(tagLocators.hourInput).clear()
+        cy.get(tagLocators.hourInput).type(text, {force: true})
+        cy.wait(1000)
+        cy.screenshot(Cypress.currentTest.title + '-typeHourInput')
     }
 
     typeInputExcerpt(text) {
@@ -168,5 +177,9 @@ const tagLocators = {
 
     verifyAlertBanner() {
         return cy.get(tagLocators.alertBanner).innerText
+    }
+
+    verifyErrorText() {
+        return cy.get(tagLocators.errorText).innerText
     }
   }
