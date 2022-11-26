@@ -5,6 +5,7 @@ const tagLocators = {
     textAreaPostDescriptionClick: "div[data-placeholder='Begin writing your post...']",
     textAreaPostDescription: "div[data-placeholder='Begin writing your post...'] > p",
     buttonPostPublish: ".gh-publish-trigger span",
+    buttonGoogleMetadata: "ul.nav-list.nav-list-block > li.nav-list-item:first-child > button",
     buttonContinuePublish: "div.gh-publish-cta > button.gh-btn",
     buttonHeaderEditor: "header.gh-publish-header > button.gh-btn-editor",
     buttonPosts: "a[href='#/posts/']",
@@ -13,7 +14,7 @@ const tagLocators = {
     buttonScheduledForLater: "div .gh-publish-schedule .gh-radio:nth-child(2)",
     buttonDrafts: "a[href='#/posts/?type=draft']",
     buttonPublished: "a[href='#/posts/?type=published']",
-    buttonEditFirstItem: "ol.posts-list.gh-list.feature-memberAttribution > li.gh-list-row.gh-posts-list-item.gh-posts-list-item-labs.gh-post-list-plain-status:first-child > a.ember-view.permalink.gh-list-data.gh-post-list-button",
+    buttonEditFirstItem: "ol.posts-list.gh-list.feature-memberAttribution > li.gh-list-row.gh-posts-list-item.gh-post-list-plain-status:first-child > a.ember-view.permalink.gh-list-data.gh-post-list-button",
     buttonEditMenu: "button[title='Settings']",
     buttonDeleteDraftPost: "button.gh-btn.gh-btn-hover-red.gh-btn-icon.settings-menu-delete-button",
     buttonConfirmDeleteDraftPost: "div.modal-footer > button.gh-btn.gh-btn-red.gh-btn-icon.ember-view",
@@ -24,7 +25,15 @@ const tagLocators = {
     hourInput: "div.gh-date-time-picker > div.gh-date-time-picker-time > input",
     inputExcerpt: "textarea#custom-excerpt",
     inputTag: "input.ember-power-select-trigger-multiple-input",
-    errorText: "div.gh-date-time-picker > div.gh-date-time-picker-error"
+    inputGoogleMetadataTitle: "input#meta-title",
+    inputGoogleMetadataDescription: "textarea#meta-description",
+    inputGoogleMetadataUrl: "input.post-setting-canonicalUrl.ember-text-field",
+    errorText: "div.gh-date-time-picker > div.gh-date-time-picker-error",
+    divItemGoogleMetadata: "form[aria-label='Meta data settings'] > div.form-group:nth-child($divPosition)",
+    helperTextForGoogleMetadataTitle: "form[aria-label='Meta data settings'] > div.form-group:first-child > p",
+    helperTextForGoogleMetadataDescription: "form[aria-label='Meta data settings'] > div.form-group:nth-child(2) > p",
+    helperTextForGoogleMetadataUrl: "form[aria-label='Meta data settings'] > div.form-group:nth-child(3) > p",
+    titlePublishingPage: "div.gh-publish-title > div.green"
   };
   export class postPage {
 
@@ -48,6 +57,11 @@ const tagLocators = {
     clickTextAreaPostTitle() {
         cy.get(tagLocators.textAreaPostDescriptionClick).click()
         cy.screenshot(Cypress.currentTest.title + '-clickTextAreaPostTitle')
+    }
+
+    clickTextAreaMetadataGoogleDescription() {
+        cy.get(tagLocators.inputGoogleMetadataDescription).click()
+        cy.screenshot(Cypress.currentTest.title + '-clickTextAreaMetadataGoogleDescription')
     }
 
     typeTextAreaPostDescription(text) {
@@ -89,6 +103,34 @@ const tagLocators = {
         cy.get(tagLocators.inputTag).first().type(text, {force: true})
         cy.wait(1000)
         cy.screenshot(Cypress.currentTest.title + '-typeTagInput')
+    }
+
+    typeGoogleMetadataTitle(text) {
+        cy.get(tagLocators.inputGoogleMetadataTitle).clear()
+        cy.get(tagLocators.inputGoogleMetadataTitle).type(text, {force: true})
+        cy.wait(1000)
+        cy.screenshot(Cypress.currentTest.title + '-typeGoogleMetadataTitle')
+    }
+
+    typeGoogleMetadataDescription(text) {
+        cy.get(tagLocators.inputGoogleMetadataDescription).clear()
+        cy.get(tagLocators.inputGoogleMetadataDescription).type(text, {force: true})
+        cy.wait(1000)
+        cy.screenshot(Cypress.currentTest.title + '-typeGoogleMetadataDescription')
+    }
+
+    typeGoogleMetadataUrl(text) {
+        console.log(typeof text)
+        cy.get(tagLocators.inputGoogleMetadataUrl).clear()
+        cy.get(tagLocators.inputGoogleMetadataUrl).type(text, {force: true})
+        cy.wait(1000)
+        cy.screenshot(Cypress.currentTest.title + '-typeGoogleMetadataUrl')
+    }
+
+    clickToGoogleMetadataOption(){
+        cy.get(tagLocators.buttonGoogleMetadata).click()
+        cy.wait(1000)
+        cy.screenshot(Cypress.currentTest.title + '-clickToGoogleMetadataOption')
     }
 
     clickToButtonPostPublish() {
@@ -181,5 +223,25 @@ const tagLocators = {
 
     verifyErrorText() {
         return cy.get(tagLocators.errorText).innerText
+    }
+
+    verifyDivInputGoogleMetadata(divPosition){
+        return cy.get(tagLocators.divItemGoogleMetadata.replace('$divPosition', divPosition))
+    }
+
+    verifyHelperTextForMetadataGoogleTitle() {
+        return cy.get(tagLocators.helperTextForGoogleMetadataTitle)
+    }
+
+    verifyHelperTextForMetadataGoogleDescription() {
+        return cy.get(tagLocators.helperTextForGoogleMetadataDescription)
+    }
+
+    verifyHelperTextForMetadataGoogleUrl() {
+        return cy.get(tagLocators.helperTextForGoogleMetadataUrl)
+    }
+
+    verifyTitlePublishingPage(){
+        return cy.get(tagLocators.titlePublishingPage)
     }
   }
