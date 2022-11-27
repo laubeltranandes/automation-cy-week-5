@@ -14,6 +14,15 @@ When(/^a new member is created$/, function () {
     membersPageObj.clickSaveButton()
 });
 
+When(/^a specific new member is created using (.*) and (.*)$/, function (name, email) {
+    dashboardPageObj.navigateToMembers();
+    dashboardPageObj.clickNewMemberButton();
+    membersPageObj.enterMemberName(name);
+    membersPageObj.enterEmail(email);
+    membersPageObj.clickSaveButton();
+    cy.wait(3000)
+});
+
 
 Then(
   /^the total members counter should be (.*)/,

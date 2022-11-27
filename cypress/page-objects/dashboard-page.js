@@ -7,10 +7,12 @@ const dashboardLocators = {
   dashboardLink: "a[href='#/dashboard/']",
   totalMembersSectionLabel: ".gh-dashboard-metric-label",
   topSourcesSectionLabel: ".gh-dashboard-metric-label",
-  engagementSectionLabel: "gh-dashboard-metric-label",
-  recentPostSectionLabel: "gh-dashboard-metric-label",
+  engagementSectionLabel: ".gh-dashboard-metric-label",
+  recentPostSectionLabel: ".gh-dashboard-metric-label",
   membersLink: "a[href='#/members/']",
-  member: "//tr[1]"
+  member: "//tr[1]",
+  response: ".response"
+
 };
 
 
@@ -69,6 +71,21 @@ export class dashboardPage {
   verifyRecentPostSection() {
     cy.get(dashboardLocators.recentPostSectionLabel).contains("Recent posts")
     cy.screenshot(Cypress.currentTest.title + '-verifyRecentPostSection')
+  };
+
+  verifyEmailerrorValidation() {
+    cy.get(dashboardLocators.response).contains("Invalid Email.")
+    cy.screenshot(Cypress.currentTest.title + '-verifyInvalidEmail')
+  };
+
+  verifyNameErrorValidation() {
+    cy.get(dashboardLocators.response).contains("Invalid Name.")
+    cy.screenshot(Cypress.currentTest.title + '-verifyInvalidName')
+  };
+
+  verifyDuplicatedErrorValidation() {
+    cy.get(dashboardLocators.response).contains("Member already exists. Attempting to add member with existing email address")
+    cy.screenshot(Cypress.currentTest.title + '-verifyDuplicated')
   };
 
 }
