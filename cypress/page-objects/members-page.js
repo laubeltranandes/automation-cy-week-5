@@ -10,14 +10,14 @@ const membersLocators = {
 
 export class membersPage {
 
-  enterMemberName() {
-    cy.get(membersLocators.memberNameTextBox).type("name", {force: true})
+  enterMemberName(name) {
+    cy.get(membersLocators.memberNameTextBox).type(name, {force: true})
     cy.wait(1000)
     cy.screenshot(Cypress.currentTest.title + '-enterMemberName')
   }
 
-  enterEmail(){
-    cy.get(membersLocators.emailTextBox).type("user@email.com")
+  enterEmail(email){
+    cy.get(membersLocators.emailTextBox).type(email)
     cy.wait(1000)
     cy.screenshot(Cypress.currentTest.title + '-enterEmail')
   }
