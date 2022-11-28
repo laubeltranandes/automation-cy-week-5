@@ -155,3 +155,152 @@ Para las pruebas que corresponden a tags se realizó lo siguiente:
   </li>
  </ul>
  
+ <h1> Entrega semana 7 </p>
+ 
+ <h4>Esta semana se hizo uso de tres estrategias de generación de datos para pruebas en el aplicativo Ghost, los cuales se describen en seguida</h4>
+ 
+ ## Generación de datos a priori
+ 
+ Se trata de una estrategia de generación de datos que implica usar construir una fuente de datos fija que puede ser accedida en tiempo de ejecucion de pruebas, estas pueden verse como un conjunto de datos descriptivos en una Base de datos, archivo csv, archivo json u otra fuente de facil acceso por motor de pruebas.
+ 
+ En nuestro caso, optamos por la creación de un archivo json con atributos que se diferencian por su tipo, siendo este un ejemplo:
+ 
+ ```json
+ [
+ {
+    "color": "#734ce6",
+    "name": "Mersey",
+    "description": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.\n\nPraesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+    "email": "mtimby0@auda.org.au",
+    "title": "suspendisse",
+    "date": "2023-11-13",
+    "url": "https://wikipedia.org/blandit.png?tristique=faucibus&est=orci&et=luctus&tempus=et&semper=ultrices&est=posuere&quam=cubilia&pharetra=curae&magna=donec&ac=pharetra&consequat=magna&metus=vestibulum&sapien=aliquet&ut=ultrices&nunc=erat",
+    "test_field": "｀ｨ(´∀｀∩"
+  }, {
+    "color": "#b46e31",
+    "name": "Walsh",
+    "description": "Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.\n\nAenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
+    "email": "whuskisson1@creativecommons.org",
+    "title": "dolor",
+    "date": "2023-10-06",
+    "url": "http://discuz.net/montes.js?elementum=sagittis&ligula=sapien&vehicula=cum&consequat=sociis&morbi=natoque&a=penatibus&ipsum=et&integer=magnis&a=dis&nibh=parturient&in=montes&quis=nascetur&justo=ridiculus&maecenas=mus&rhoncus=etiam",
+    "test_field": "⁰⁴⁵₀₁₂"
+  }
+ ]
+ ```
+ 
+ ### Modo de uso:
+ 
+  - Adicionamos un paso en el background de los features que se encarga de hacer la seleccion del item dentro del archivo que vamos a tener como referencia en nuestros escenarios.
+  
+  ```feature
+  Background:
+    Given a priori data should be loaded for page
+  ```
+ 
+ - Se debe hacer el import de la clase mackarooClient json en la capa de steps.
+ 
+ ```javascript
+ import {MockarooClient} from "../mockarooClient/mockarooClient";
+ ```
+ 
+ - Instanciamos el objeto mackaroo que será el encargado de seleccionar el item de datos de prueba.
+ ```javascript
+ const mockaroo = new MockarooClient();
+ ```
+ 
+ - Usamos el item con sus atributos
+ ```javascript
+ let selectedRow;
+ 
+ Given(/^a priori data should be loaded for page$/, async function() {
+    selectedRow = await mockaroo.getDataPoolRandom();
+ });
+ 
+ When(/^user types a text$/, async function() {
+    pagesPageObj.putInputText(selectedRow.title);
+ })
+ ```
+ 
+ ## Generación de datos pseudo aleatorios
+ 
+ En este modo dejamos la responsabilidad de obtener los datos para las pruebas al cliente de Mackaroo, el cual se conecta directamente con el API de Mackaroo y obtiene los valores con la estrategia que se defina en el cliente
+ 
+ Esta es la definicion del cliente de Mackaroo en una fachada donde especificamos la estrategia requerida para obtener los valores de prueba:
+  
+ ```javascript
+  export class MockarooClient {
+
+    amount = 1;
+    client = new Mockaroo.Client({ apiKey: 'xxxxxxxx' });
+
+    MockarooClient(){}
+
+    async getDataPoolFromAPI() {
+        return this.client.generate({
+            count: this.amount,
+            schema: 'pseudo-aleatorio'
+        })
+    }
+ }
+ ```
+ 
+ ### Modo de uso:
+ 
+  - Adicionamos un paso en el background de los features que se encarga de hacer la una precarga de datos de prueba con la misma estructura de un item del archivo json mostrado en la estrategia de datos a priori
+  
+  ```feature
+  Background:
+    Given a priori data pseudo aletorio should be loaded for page
+  ```
+ 
+ - Se debe hacer el import de la clase mackarooClient json en la capa de steps.
+ 
+ ```javascript
+ import {MockarooClient} from "../mockarooClient/mockarooClient";
+ ```
+ 
+ - Instanciamos el objeto mackaroo que será el encargado de seleccionar el item de datos de prueba.
+ ```javascript
+ const mockaroo = new MockarooClient();
+ ```
+ 
+ - Usamos el item con sus atributos
+ ```javascript
+ let selectedRow;
+ 
+ Given(/^a priori data should be loaded for page$/, async function() {
+    selectedRow = await mockaroo.getDataPoolFromAPI();
+ });
+ 
+ When(/^user types a text$/, async function() {
+    pagesPageObj.putInputText(selectedRow.title);
+ })
+ ```
+
+## Generación de datos aleatorios
+
+Para esta estrategia nos apoyamos de la libreria [faker](https://fakerjs.dev/), la cual cuenta con la logica para generar data de tipo random divida en secciones que facilitan su uso y explotación.
+
+### Modo de uso
+
+- Se debe hacer el import de la libreria faker en la capa de steps.
+ 
+ ```javascript
+ import {faker} from '@faker-js/faker';
+ ```
+ 
+ - Usamos el objeto importado para generar la data aleatoria
+ ```javascript
+   When(/^user types a RGB color$/, async function() {
+    pagesPageObj.putInputText(faker.color.rgb());
+   })
+   
+   When(/^user types a url$/, async function() {
+    pagesPageObj.putInputText(faker.internet.url());
+   })
+   
+   When(/^user types a date$/, async function() {
+    pagesPageObj.putInputText(faker.date.birthdate().toISOString());
+   })
+ ```
