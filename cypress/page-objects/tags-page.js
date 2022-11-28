@@ -2,6 +2,7 @@ const tagLocators = {
     tagLink:"a[href='#/tags/'",
     newTagButton: "a[href='#/tags/new/'",
     inputTagName: "input[id='tag-name']",
+    inputTagSlug: "input[id='tag-slug']",
     textAreaTagDescription: "textarea[id='tag-description']",
     inputTagColor: "input[placeholder='15171A']",
     buttonTagExpand: "div .gh-expandable-header > button",
@@ -9,7 +10,7 @@ const tagLocators = {
     textAreaTagMetaDescription: "textarea[id='meta-description']",
     inputTagCannonicalUrl: "input[id='canonical-url']",
     buttonSaveTag: "button[class='gh-btn gh-btn-primary gh-btn-icon ember-view']",
-    linkFirstTagList:"a[href='#/tags/tag-test-cypress-1/']",
+    linkFirstTagList:"li[class='ember-view gh-list-data gh-tag-list-title gh-list-cellwidth-70']",
     buttonLeave:"button[class='gh-btn gh-btn-red']",
     buttonTagDelete: "button[class='gh-btn gh-btn-red gh-btn-icon']",
     buttonTagAcceptModal: "button[class='gh-btn gh-btn-red gh-btn-icon ember-view']",
@@ -17,7 +18,8 @@ const tagLocators = {
     messageError: "span[class='error']",
     tittleTag: "h2[class='gh-canvas-title']",
     tagName: "h3[class='gh-tag-list-name']",
-   
+    titleTagInsideList: "ol.tags-list gh-list  > li.gh-list-row gh-tags-list-item:first-child > a.ember-view:first-child > h3.gh-tag-list-name",
+    buttonInternal: "button[class='gh-btn ']"
   };
   export class tagPage {
 
@@ -40,9 +42,35 @@ const tagLocators = {
         cy.screenshot(Cypress.currentTest.title + '-putInputTagName')
     }
 
+    typeTagTitle(text) {
+        cy.get(tagLocators.inputTagName).type(text)
+    }
+    typeColor(text) {
+        cy.get(tagLocators.inputTagColor).type(text)
+    }
+
     putTextAreaTagDescription() {
         cy.get(tagLocators.textAreaTagDescription).type('Tag test descriptioncypress 1')
         cy.screenshot(Cypress.currentTest.title + '-putTextAreaTagDescription')
+    }
+
+    inputAreaTagDescription(text) {
+        cy.get(tagLocators.textAreaTagDescription).type(text)
+    }
+
+    inputSlug(text) {
+        cy.get(tagLocators.inputTagSlug).type(text)
+    }
+
+    inputTagMetaTitle(text) {
+        cy.get(tagLocators.inputTagMetaTitle).type(text)
+    }
+
+    inputTagCanonicalUrl(text) {
+        cy.get(tagLocators.inputTagCannonicalUrl).type(text)
+    }
+    inputTagMetaDescription(text) {
+        cy.get(tagLocators.textAreaTagMetaDescription).type(text)
     }
 
     putInputTagColor() {
@@ -79,8 +107,14 @@ const tagLocators = {
         cy.screenshot(Cypress.currentTest.title + '-clickToButtonSaveTag')
     }
 
+    clickToInternalTag() {
+        cy.get(tagLocators.buttonInternal).click();
+        cy.wait(1000)        
+    }
+
+
     clickToLinkFirstTagList() {
-        cy.get(tagLocators.linkFirstTagList).first().click()
+        cy.get(tagLocators.tagName).first().click()
         cy.wait(1000)
         cy.screenshot(Cypress.currentTest.title + '-clickToLinkFirstTagList')
     }
@@ -141,4 +175,16 @@ const tagLocators = {
             expect($items.find(item => item.innerText == "You must specify a name for the tag."))
         })
     }
+
+    messageColorError(text) {
+        cy.get(tagLocators.messageError).then($items => {
+            expect($items.find(item => item.innerText == text))
+        })
+    }
+
+    verifyTagTitleOnList(text) { 
+        return cy.get(tagLocators.tagName).then(($items) => {
+            return $items.find(item => item.innerText == text)
+        })
+    }   
   }
