@@ -325,3 +325,5 @@ Para esta estrategia nos apoyamos de la libreria [faker](https://fakerjs.dev/), 
  - [[Publicar un post] No muestra alerta roja cuando se ingresa un texto de 269 caracteres en el campo "Tags" al publicar un post](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-31)
  - [[Publicar un post] No muestra alerta roja cuando se ingresa un texto de caracteres especiales en el campo "Tags" al publicar un post](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-32)
  - [[Tags] Crear un Tag interno aparece en la pestaña de tag publicos](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-36)
+ - [[Dashboard] Se permite agregar emails en formato incorrecto] (https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-34?atlOrigin=eyJpIjoiYjk5MWMyNDc1MzJlNDYyZGE4ZTNhNTcyNGQzYWM3NzEiLCJwIjoiaiJ9)
+ - [[Dashboard] Se permite agregar nombres con caracteres especiales o campo vacio](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-35?atlOrigin=eyJpIjoiYTA0ODE0Mzc2OGU1NDhjYmI1YTkzZWI2OTkzNzQ5YTgiLCJwIjoiaiJ9)
