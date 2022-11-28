@@ -308,3 +308,19 @@ Para esta estrategia nos apoyamos de la libreria [faker](https://fakerjs.dev/), 
     pagesPageObj.putInputText(faker.date.birthdate().toISOString());
    })
  ```
+ 
+ ### Incidencias encontradas
+ 
+ - [[Crear un post sin publicarlo] No muestra post con titulo que contiene caracteres diferentes al alfabeto español](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-20)
+ - [[Crear un post sin publicarlo] No muestra alerta roja cuando se ingresa un texto en el campo "Publish Date" al guardar un post de tipo Draft](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-21)
+ - [[Crear un post sin publicar] No muestra alerta roja cuando se ingresa un texto con caracteres extraños en el campo "Publish Date" al guardar un post de tipo Draft](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-22)
+ - [[Crear un post sin publicar] No muestra alerta roja cuando se ingresa un texto con caracteres extraños en el campo "Excerpt" al guardar un post de tipo Draft](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-23)
+ - [[Crear un post sin publicar] No muestra alerta roja cuando se ingresa un texto de 269 caracteres en el campo "Tags" al guardar un post de tipo Draft](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-24)
+ - [[Programar un post] No muestra mensaje de alerta rojo debajo del campo cuando se registra un texto en el campo de fecha después de darle clic al botón "Schedule for later"](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-25)
+ - [[Programar un post] No muestra mensaje de alerta rojo debajo del campo cuando se registra un texto con caracteres especiales en el campo de fecha después de darle clic al botón "Schedule for later"](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-26)
+ - [[Programar un post] No muestra mensaje de alerta rojo debajo del campo cuando se registra un texto en el campo de hora después de darle clic al botón "Schedule for later"](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-27)
+ - [[Programar un post] No muestra mensaje de alerta rojo debajo del campo cuando se registra una fecha en el campo de hora después de darle clic al botón "Schedule for later"](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-28)
+ - [[Publicar un post] No muestra alerta roja cuando se ingresa una url en el campo "Url" al publicar un post](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-29)
+ - [[Publicar un post] No muestra alerta roja cuando se ingresa un texto con caracteres especiales en el campo "Url" al publicar un post](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-30)
+ - [[Publicar un post] No muestra alerta roja cuando se ingresa un texto de 269 caracteres en el campo "Tags" al publicar un post](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-31)
+ - [[Publicar un post] No muestra alerta roja cuando se ingresa un texto de caracteres especiales en el campo "Tags" al publicar un post](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-32)
