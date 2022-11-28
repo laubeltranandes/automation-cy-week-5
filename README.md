@@ -324,3 +324,4 @@ Para esta estrategia nos apoyamos de la libreria [faker](https://fakerjs.dev/), 
  - [[Publicar un post] No muestra alerta roja cuando se ingresa un texto con caracteres especiales en el campo "Url" al publicar un post](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-30)
  - [[Publicar un post] No muestra alerta roja cuando se ingresa un texto de 269 caracteres en el campo "Tags" al publicar un post](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-31)
  - [[Publicar un post] No muestra alerta roja cuando se ingresa un texto de caracteres especiales en el campo "Tags" al publicar un post](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-32)
+ - [[Tags] Crear un Tag interno aparece en la pestaña de tag publicos](https://pruebas-automatizadas-andes.atlassian.net/browse/RLBOIEELA-36)
