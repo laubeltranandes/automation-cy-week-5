@@ -157,7 +157,11 @@ Para las pruebas que corresponden a tags se realizó lo siguiente:
  
  <h1> Entrega semana 7 </p>
  
- <h4>Esta semana se hizo uso de tres estrategias de generación de datos para pruebas en el aplicativo Ghost, los cuales se describen en seguida</h4>
+ <h4>Esta semana se hizo uso de tres estrategias de generación de datos para pruebas en el aplicativo Ghost, 
+ como estructura del proyecto se definen 3 carpetas importantes para la creación de escenarios de pruebas aleatorias, como se visualiza en la imagen podemos encontrar dentro del feature todos los escenarios correspondientes a cada prueba aleatoria (apriori-data , apriori-pseudo-aleatorio , datos-aleatorios) con sus respectivos steps
+</h4>
+
+ ![image](https://user-images.githubusercontent.com/111259182/204167665-3ce29912-2582-4ecd-872c-6aa79c0b2fc6.png)
  
  ## Generación de datos a priori
  
